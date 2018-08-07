@@ -11,7 +11,7 @@ Markdown is a lightweight and easy-to-use syntax for styling your writing. It in
 ```markdown
 Syntax highlighted code block
 
-https://github.com/sunabove/220_template/html/010_template.html
+# [Template](https://sunabove.github.io/220_template/html/010_template.html)
 
 # Header 1
 ## Header 2
