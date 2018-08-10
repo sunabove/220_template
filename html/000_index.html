@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 화면 목록 </title>
+    <title> 화면 목록 (2018-08-10 23:07) </title>
     <meta name="description" content="" />
 
     <link rel="icon" href="../rsc/psdr-custom/img/favicon.ico" type="image/x-icon" />
@@ -26,8 +27,8 @@
         <section class="container" >
             <h3> * 프로콤 FDW 화면 목록 (2018-08-09) </h3>
             <ul class="list-group">
-                <li class="list-group-item"> <a href="./110_main.html" > 1. 로그인 </a> </li> 
-                <li class="list-group-item"> <a href="./210_data_list.html" > 2. 고장데이터 목록 </a> </li>
+                <li class="list-group-item"> <a th:href="@{/main/main.html}" href="./110_main.html" > 1. 로그인 </a> </li> 
+                <li class="list-group-item"> <a th:href="@{/data/list.html}" href="./210_data_list.html" > 2. 고장데이터 목록 </a> </li>
                 <li class="list-group-item"> <a href="./311_user_regi.html" > 3. 사용자 등록 </a> </li> 
                 <li class="list-group-item"> <a href="./410_manage_user_role.html" > 4. 사용자 권한 관리 </a> </li> 
                 <li class="list-group-item"> <a href="./530_article_list.html" > 5. 게시물 목록 </a> </li> 
