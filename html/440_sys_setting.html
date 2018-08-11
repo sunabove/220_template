@@ -1,12 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 
-<head>
+<head th:replace="021_layout_html_head.html">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 사용자 권한 관리 </title>
-    <meta name="description" content="" /> 
-
+    <title> FDW HTML Template </title>
+    <meta name="description" content="" />
     <link rel="icon" href="../rsc/psdr-custom/img/favicon.ico" type="image/x-icon" />
 
     <link rel="shortcut icon" href="../rsc/psdr-custom/img/favicon.ico" type="image/x-icon" />
@@ -22,7 +21,7 @@
 
 <body>
 
-    <nav class="navbar fixed-top navbar-expand-lg bg-primary text-center p-0 justify-content-center">
+    <nav th:replace="022_layout_header.html :: header_01" class="navbar fixed-top navbar-expand-lg bg-primary text-center p-0 justify-content-center">
 
         <div class="container text-center text-nowrap">
             <div class="row">
@@ -45,7 +44,7 @@
 
                                 <td class="text-left">
                                     <img src="../rsc/psdr-custom/img/logo_002_psdr.png" alt="name_img" style="height: 20px;">
-                                    <br>
+                                    <br/>
                                     <img src="../rsc/psdr-custom/img/logo_003_fdw.png" alt="name_img" style="height: 22px;">
                                 </td>
                                 <td>
@@ -66,7 +65,9 @@
 
     </nav>
 
-    <nav class="navbar fixed-top navbar-expand-lg bg-light p-0 pt-1 justify-content-center" style="margin-top: 68px">
+    <nav th:replace="022_layout_header.html :: header_02" class="navbar fixed-top navbar-expand-lg bg-light p-0 pt-1 justify-content-center"
+        style="margin-top: 68px">
+
         <div class="container p-0">
             <div class="row">
                 <div class="col">
@@ -130,7 +131,9 @@
 
                 </div>
             </div>
-    </div></nav>
+        </div>
+
+    </nav>
 
     <main>
 
@@ -142,19 +145,19 @@
                     <p class="m-0 pt-1  d-inline-block">시스템설정</p>
                 </a>
 
-                
+
 
             </nav>
-             <!-- 이미지 추가 S-->
+            <!-- 이미지 추가 S-->
             <div>
-            <img src= "../rsc/psdr-custom/img/slider.jpg" alt="slider" class="img-fluid rounded mx-auto my-3 d-block img-thumbnail" >
+                <img src="../rsc/psdr-custom/img/slider.jpg" alt="slider" class="img-fluid rounded mx-auto my-3 d-block img-thumbnail">
             </div>
             <!-- 이미지 추가 E-->
 
             <div class="row my-4">
                 <div class="col-6 ">
-                    <img class="d-none d-lg-block m-auto img-thumbnail" alt="slider"  src="../rsc/psdr-custom/img/slider1.png">
-                 
+                    <img class="d-none d-lg-block m-auto img-thumbnail" alt="slider" src="../rsc/psdr-custom/img/slider1.png">
+
                 </div>
                 <div class="col-6 my-auto m-auto">
                     <div class="row">
@@ -167,20 +170,20 @@
                                         <label for="exampleInputEmail1 text-white" class="text-primary">배경화면 그림 </label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <div class="input-group ">
-                                                <input type="text" class="form-control pr-2 " placeholder="myPicture.png" aria-label="Search for...">
-                                                <span class="input-group-btn pl-1">
-                                                    <button class="btn btn-primary " type="button">
-                                                        <i class="fas fa-check"></i>&nbsp; 적용
-                                                    </button>
-                                                    <button class="btn btn-secondary" type="button">
-                                                         <i class="fas fa-redo-alt "></i> &nbsp; 취소
-                                                    </button>
-                                                </span>
+                                            <input type="text" class="form-control pr-2 " placeholder="myPicture.png" aria-label="Search for...">
+                                            <span class="input-group-btn pl-1">
+                                                <button class="btn btn-primary " type="button">
+                                                    <i class="fas fa-check"></i>&nbsp; 적용
+                                                </button>
+                                                <button class="btn btn-secondary" type="button">
+                                                    <i class="fas fa-redo-alt "></i> &nbsp; 취소
+                                                </button>
+                                            </span>
                                         </div>
 
-                                       
+
                                     </div>
-                                    
+
                                 </form>
                             </div>
                         </div>
@@ -189,31 +192,31 @@
                                 <form>
                                     <div class="input-group mb-2">
                                         <button class="btn btn-primary " type="button">
-                                                <i class="fas fa-edit"></i>&nbsp; 지역본부
+                                            <i class="fas fa-edit"></i>&nbsp; 지역본부
                                         </button>
-                                        <input type="text" class="form-control pr-2 " placeholder="경기지역본부" aria-label="Search for...">    
-                                    </div> 
+                                        <input type="text" class="form-control pr-2 " placeholder="경기지역본부" aria-label="Search for...">
+                                    </div>
                                     <div class="input-group mb-2">
                                         <button class="btn btn-primary " type="button">
-                                                <i class="fas fa-edit"></i>&nbsp; 전력지사
+                                            <i class="fas fa-edit"></i>&nbsp; 전력지사
                                         </button>
                                         <input type="text" class="form-control pr-2 " placeholder="성남전력지사" aria-label="Search for...">
                                     </div>
                                     <div class="input-group mb-3">
-                                         <button class="btn btn-primary " type="button">
-                                                <i class="fas fa-edit"></i>&nbsp; 변전소명
+                                        <button class="btn btn-primary " type="button">
+                                            <i class="fas fa-edit"></i>&nbsp; 변전소명
                                         </button>
                                         <input type="text" class="form-control pr-2 " placeholder="154kV 중원 S/S" aria-label="Search for...">
                                     </div>
                                     <div class="input-group ">
                                         <span class="input-group-btn pl-1 m-auto">
-                                                <button class="btn btn-primary " type="button">
-                                                    <i class="fas fa-check"></i>&nbsp; 적용
-                                                </button>
-                                                <button class="btn btn-secondary" type="button">
-                                                    <i class="fas fa-redo-alt "></i> &nbsp; 취소
-                                                </button>
-                                        </span> 
+                                            <button class="btn btn-primary " type="button">
+                                                <i class="fas fa-check"></i>&nbsp; 적용
+                                            </button>
+                                            <button class="btn btn-secondary" type="button">
+                                                <i class="fas fa-redo-alt "></i> &nbsp; 취소
+                                            </button>
+                                        </span>
                                     </div>
                                 </form>
                             </div>
@@ -227,7 +230,7 @@
 
     </main>
 
-    <footer class="bg-dark text-center">
+    <footer th:replace="024_layout_footer.html" class="bg-dark text-center">
 
         <div class="container py-3 text-center text-nowrap">
             <div class="row text-nowrap">
@@ -259,26 +262,32 @@
                 </div>
             </div>
 
-            <div class="row text-nowrap">
-                <div class="col">
-                    <span>전화 : 042-253-7007 &nbsp;&nbsp;
+            <div class="row text-nowrap mt-2">
+                <div class="col small">
+                    <span>
+                        <i class="fas fa-phone"></i>&nbsp; 전화 : 042-253-7007 &nbsp;&nbsp;
                     </span>
-                    <span>팩스 : 042-253-7009 &nbsp;&nbsp;
+                    <span>
+                        <i class="fas fa-fax"></i>&nbsp; 팩스 : 042-253-7009 &nbsp;&nbsp;
                     </span>
-                    <span>메일 : procom@procom.co.kr &nbsp;&nbsp;
+                    <span>
+                        <i class="fas fa-envelope"></i>&nbsp; 메일 : procom@procom.co.kr &nbsp;&nbsp;
                     </span>
-                    <p class="copyright">Copyright ⓒ 프로컴시스템 All Rights Reserved. </p>
+                    <p class="copyright mt-1"> ⓒ (주)프로컴시스템 All Rights Reserved. </p>
                 </div>
             </div>
+
         </div>
 
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <script src="../rsc/jquery/jquery-3.3.1.min.js"></script>
+    <div th:replace="020_layout_common.html :: footer_include_01">
+        <!-- Bootstrap core JavaScript -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../rsc/jquery/jquery-3.3.1.min.js"></script>
 
-    <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+        <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+    </div>
 
 </body>
 
