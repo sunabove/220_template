@@ -43,9 +43,9 @@
 - cp /opt/tomcat/svr/bin/tomcat9 /etc/init.d/tomcat9 
 - chmod 755 /etc/init.d/tomcat9 
 - cd /etc/init.d
-- update-rc.d tomcat9 defaults
+- update-rc.d tomcat9 defaults 81
 
-- get clone https://github.com/sunabove/220_template.git /opt/tomcat/template
+- git clone https://github.com/sunabove/220_template.git /opt/tomcat/template
 
 - #tomcat auto startup script
 #!/bin/bash
