@@ -2,7 +2,11 @@
 
 sYou can use the [editor on GitHub]
 
-hello....
+<<<<<<< HEAD
+hello....good morning
+=======
+hello good afternoon ....
+>>>>>>> 1a3502830b45babb5f10c5216e4a37a26713c87e
 
 (https://github.com/sunabove/220_template/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
