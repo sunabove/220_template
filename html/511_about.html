@@ -1,0 +1,297 @@
+
+<!doctype html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procom Fault Data Downloader</title>
+    <meta name="description" content="Boldstrap is a free, open source Bootstrap 4 theme" />
+    <meta name="generator" content="Themestr.app">
+
+    <link rel="icon" href="../rsc/psdr-custom/img/favicon.ico" type="image/x-icon" />
+
+    <link rel="shortcut icon" href="../rsc/psdr-custom/img/favicon.ico" type="image/x-icon" />
+
+    <link href="../rsc/bootstrap-4.1.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/3.0.0/css/ionicons.css" rel="stylesheet">
+    <link href="../rsc/bootstrap-theme/theme.css" rel="stylesheet">
+    <link href="../rsc/bootstrap-theme/template.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+
+    <style type="text/css">
+        input[type="submit"] {font-family:FontAwesome;}
+    </style>
+</head>
+
+  <body>
+
+    <nav class="navbar fixed-top navbar-expand-lg bg-primary text-center p-0">
+
+        <div class="container text-center text-nowrap">
+            <div class="row">
+                <div class="col">
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a class="text-muted" href="#">
+                                        <img src="../rsc/psdr-custom/img/logo.png" alt="logo" align="top">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="text-muted" href="#">
+                                        <p class="display-4 font-weight-bold d-inline-block mb-0 align-center pl-2" style="color:#083358">FDW</p>
+                                    </a>
+                                </td>
+                                <td></td>
+
+                                <td>
+                                    <img src="../rsc/psdr-custom/img/name_img.png" alt="name_img" style="height: 50px;">
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                    <a class="text-muted" href="#">
+                                        <img src="../rsc/psdr-custom/img/product.png" alt="product" style="height: 65px;">
+                                    </a>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <nav class="navbar fixed-top navbar-expand-lg bg-light p-0 pt-1" style="margin-top: 86px">
+        <div class="container p-0">
+            <div class="row">
+                <div class="col">
+                    <table class="text-nowrap" style="vertical-align: center; margin-top: 8px;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h3 class="card-title text-warning font-weight-bold mb-0"> 경기지역본부 </h3>
+                                </td>
+                                <td>
+                                    <h3 class="card-title text-dark font-weight-bold p-0 mb-0">
+                                        &nbsp;성남전력지사 &nbsp;&nbsp;
+                                    </h3>
+                                </td>
+
+                                <td class="text-left">
+                                    <h6 class="card-body p-0 m-0 text-dark">
+                                        <span class="icon ion-ios-alarm-outline h4 pr-1"></span>
+                                        2018-07-25 14:25
+                                    </h6>
+                                </td>
+                                <td class="text-left">
+                                    <h6 class="card-body p-0 m-0 text-dark">
+                                        <i class="far fa-user"></i>
+                                        접속자 : 1,234명
+                                    </h6>
+                                </td>
+                                <td class="text-left">
+                                    <h6 class="card-body p-0 m-0 text-dark">
+                                        <span class="icon ion-ios-cloud-download-outline h4 pr-1"></span>
+                                        다운로드 : 2,345건
+
+                                    </h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h4 class=" font-weight-bold text-primary p-0 m-0"> 154kV 중원 S/S </h4>
+                                </td>
+
+                                <td colspan="2" class="text-left">
+                                    <h6 class="card-body p-0 m-0">
+                                        <i class="far fa-bell"></i>
+                                        &nbsp;공지사항 :&nbsp; 사용자 정보 보호 정책이 변경되었습니다.
+                                    </h6>
+                                </td>
+                                <td class="text-right">
+
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="far fa-user"></i>
+                                        접속 아이디
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDd">
+                                        <a class="dropdown-item" href="#">로그 아웃</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">사용자 정보</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+    </nav>
+ <main>
+    <section class="container" style=" margin-top:150px; margin-bottom: 50px;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-info rouded">
+          <a class="navbar-brand font-weight-bold text-dark " href="#">
+            <i class="fas fa-caret-right d-inline-block"></i>
+            <p class="m-0 pt-1  d-inline-block">PSDR-NU/XU</p>
+          </a>
+         
+          <div class="collapse navbar-collapse " >
+            <ul class="navbar-nav mr-auto">
+              
+            </ul>
+            
+          
+          </div>
+          
+        </nav> 
+
+ 
+      <div class="row py-4 ">
+         
+        <div class="col-md-12 ">
+            <div class="card p-2" style="overflow: hidden;">
+                   
+                    <div class="form-group row px-2 pb-2 pt-0 " >
+                            <label class="col-12 col-form-label form-control-label text-primary  d-inline-block ">
+                                <i class="fas fa-dot-circle pr-2 text-primary d-inline-block"></i><h3 class="d-inline-block">PSDR-NU/XU</h3>
+                                <p class="text-dark pt-2">
+                                  PSDR-NU/XU는 전력의 품질을 분석하고, 신뢰성을 저해하는 사고가 발생하였을 때 <br>이를 신속하게 분석, 파악하여 원인을 찾을 수 있는 PMU기능을 가진 종합적인 전력분석 시스템입니다.
+  
+                                </p>
+
+                            </label>
+                            <label class="col-12 col-form-label form-control-label  d-inline-block ">
+                                <i class="fas fa-dot-circle pr-2 text-primary d-inline-block"></i><h3 class="d-inline-block text-primary ">PSDR-NU/XU 소개</h3>
+                                <p class="text-dark pt-2">
+                                  오늘날 전력에너지 수급에서 대두되는 문제는 양질의 전기를 안전하고 신뢰성 있게 사용자에게 공급하는 것입니다.<br>
+                                  따라서, 전기의 품질을 분석하고, 신뢰성을 저해하는 사고가 발생하였을 때 이를 신속하게 분석, 파악하여 원인을 찾을 수 있는 기능을 가진 <br>
+                                  종합적인 전력분석 시스템이 절실히 요구되고있습니다. <br>
+                                  Power System Disturbance Recorder System-Time Synchronization(이하 : PSDR-XU)는 사고 데이터를 저장하는 데이터 로거(Logger)나, <br>Fault-Recorder의기능을 기본으로 하며 그 기능은 아래와 같습니다.
+
+                                </p>
+                                <p class="text-dark d-inline-block mb-1">
+                                    <i class="fas fa-dot-circle pr-2 text-dark d-inline-block"></i>
+                                    <p class="d-inline-block mb-0">다양한 저장조건을 제시(Level, Rate of Change, Power Swing, Event)</p>
+
+                                </p>
+                                <p class="text-dark d-inline-block mb-1">
+                                    <i class="fas fa-dot-circle pr-2 text-dark d-inline-block"></i>
+                                    <p class="d-inline-block mb-0">전력의 품질을 분석하기 위한 다양한 분석 도구 제공</p>
+
+                                </p>
+                                <p class="text-dark d-inline-block mb-1">
+                                    <i class="fas fa-dot-circle pr-2 text-dark d-inline-block"></i>
+                                    <p class="d-inline-block mb-0">P, Q, V, f의 각 피더의 도식화 분석</p>
+
+                                </p>
+                                <p class="text-dark d-inline-block mb-1">
+                                    <i class="fas fa-dot-circle pr-2 text-dark d-inline-block"></i>
+                                    <p class="d-inline-block mb-0">사고점을 신속하게 찾는 고장점 표정기능</p>
+
+                                </p>
+                                <p class="text-dark d-inline-block mb-1">
+                                    <i class="fas fa-dot-circle pr-2 text-dark d-inline-block"></i>
+                                    <p class="d-inline-block mb-0">Synchro-Phasor 기능</p>
+
+                                </p>
+                                <p class="text-dark pt-2">
+                                  모든 분석화면, 재생화면에서 동일한 재생기능이 있으며, LAN 또는 WAN 통신으로 데이터를 원거리에서 취득할 수 있습니다.
+
+
+                                </p>
+
+                            </label>
+                           
+                    </div>
+                   
+                 
+                    
+            </div>   
+          
+           
+        </div>
+       
+    
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+  
+    <footer class="bg-dark text-center">
+
+        <div class="container py-3 text-center text-nowrap">
+            <div class="row text-nowrap">
+                <div class="col">
+                    <a class="nav-link text-white" href="#">
+                        <i class="fas fa-home"></i>
+                        &nbsp; 소개
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="nav-link text-white" href="#">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        &nbsp; 제품소개</a>
+                </div>
+                <div class="col">
+                    <a class="nav-link text-white" href="#">
+                        <i class="fas fa-user-secret"></i>
+                        &nbsp; 개인정보취급방침</a>
+                </div>
+                <div class="col">
+                    <a class="nav-link text-white" href="#">
+                        <i class="fas fa-newspaper"></i>
+                        &nbsp; 게시판</a>
+                </div>
+                <div class="col">
+                    <a class="nav-link text-white" href="#">
+                        <i class="fas fa-sitemap"></i>
+                        &nbsp; 사이트맵</a>
+                </div>
+            </div>
+
+            <div class="row text-nowrap">
+                <div class="col">
+                    <span>전화 : 042-253-7007 &nbsp;&nbsp;
+                    </span>
+                    <span>팩스 : 042-253-7009 &nbsp;&nbsp;
+                    </span>
+                    <span>메일 : procom@procom.co.kr &nbsp;&nbsp;
+                    </span>
+                    <p class="copyright">Copyright ⓒ 프로컴시스템 All Rights Reserved. </p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../rsc/jquery/jquery-3.3.1.min.js" ></script>
+    <!--<script>window.jQuery || document.write('<script src="../rsc/psdr-custom/js/jquery-slim.min.js"><\/script>')</script>-->
+    
+    <!--<script src="../rsc/psdr-custom/js/popper.min.js"></script>-->
+    <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+    <!--<script src="../rsc/psdr-custom/js/holder.min.js"></script>-->
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+  </body>
+</html>
