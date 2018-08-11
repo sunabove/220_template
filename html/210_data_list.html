@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 
-<head>
+<head th:replace="021_layout_html_head.html">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고장 데이터 목록</title>
@@ -472,27 +472,34 @@
                 </div>
             </div>
 
-            <div class="row text-nowrap">
+            <div class="row text-nowrap mt-2">
                 <div class="col small">
-                    <span>전화 : 042-253-7007 &nbsp;&nbsp;
+                    <span>
+                        <i class="fas fa-phone"></i>&nbsp;
+                        전화 : 042-253-7007 &nbsp;&nbsp;
                     </span>
-                    <span>팩스 : 042-253-7009 &nbsp;&nbsp;
+                    <span>
+                        <i class="fas fa-fax"></i>&nbsp;
+                        팩스 : 042-253-7009 &nbsp;&nbsp;
                     </span>
-                    <span>메일 : procom@procom.co.kr &nbsp;&nbsp;
+                    <span>
+                        <i class="fas fa-envelope"></i>&nbsp;
+                        메일 : procom@procom.co.kr &nbsp;&nbsp;
                     </span>
-                    <p class="copyright">Copyright ⓒ (주)프로컴시스템 All Rights Reserved. </p>
+                    <p class="copyright mt-1"> ⓒ (주)프로컴시스템 All Rights Reserved. </p>
                 </div>
             </div>
         </div>
 
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../rsc/jquery/jquery-3.3.1.min.js"></script>
+    <div th:replace="020_layout_common.html :: footer_include_01">
+        <!-- Bootstrap core JavaScript -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../rsc/jquery/jquery-3.3.1.min.js"></script>
 
-    <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+        <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+    </div>
 
 </body>
 
