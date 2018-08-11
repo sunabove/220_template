@@ -145,22 +145,26 @@
                 
 
             </nav>
+             <!-- 이미지 추가 S-->
+            <div>
+            <img src= "../rsc/psdr-custom/img/slider.jpg" alt="slider" class="img-fluid rounded mx-auto my-3 d-block img-thumbnail" >
+            </div>
+            <!-- 이미지 추가 E-->
 
             <div class="row my-4">
-                <div class="col-12 my-auto">
-                    <img class="d-none d-lg-block m-auto" alt="slider" style=" width:50%;" src="../rsc/psdr-custom/img/slider1.png">
-                    <br>
-                    <br>
+                <div class="col-6 ">
+                    <img class="d-none d-lg-block m-auto img-thumbnail" alt="slider"  src="../rsc/psdr-custom/img/slider1.png">
+                 
                 </div>
-                <div class="col-8 my-auto m-auto">
+                <div class="col-6 my-auto m-auto">
                     <div class="row">
-                        <div class="col-12 card flex-md-row mb-4 shadow-sm h-md-250 bg-light p-0 copyable">
+                        <div class="col-12 card flex-md-row mb-1 shadow-sm h-md-250 bg-light p-0 copyable">
                             <div class="card-body d-flex flex-column ">
                                 <form>
-                                    <div class="form-group  copyable">
+                                    <div class="form-group  copyable m-0 ">
                                         &nbsp;
-                                        <i class="fas fa-file-image"></i> &nbsp;
-                                        <label for="exampleInputEmail1 text-white">배경화면 그림파일 업로드 </label>
+                                        <i class="fas fa-file-image text-primary"></i> &nbsp;
+                                        <label for="exampleInputEmail1 text-white" class="text-primary">배경화면 그림 </label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <div class="input-group ">
                                                 <input type="text" class="form-control pr-2 " placeholder="myPicture.png" aria-label="Search for...">
@@ -183,20 +187,34 @@
                         <div class="col-12 card flex-md-row mb-4 shadow-sm h-md-250 bg-light p-0 copyable">
                             <div class="card-body d-flex flex-column ">
                                 <form>
-                                    <div class="input-group ">
+                                    <div class="input-group mb-2">
                                         <button class="btn btn-primary " type="button">
+                                                <i class="fas fa-edit"></i>&nbsp; 지역본부
+                                        </button>
+                                        <input type="text" class="form-control pr-2 " placeholder="경기지역본부" aria-label="Search for...">    
+                                    </div> 
+                                    <div class="input-group mb-2">
+                                        <button class="btn btn-primary " type="button">
+                                                <i class="fas fa-edit"></i>&nbsp; 전력지사
+                                        </button>
+                                        <input type="text" class="form-control pr-2 " placeholder="성남전력지사" aria-label="Search for...">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                         <button class="btn btn-primary " type="button">
                                                 <i class="fas fa-edit"></i>&nbsp; 변전소명
-                                            </button>
-                                        <input type="text" class="form-control pr-2 " placeholder="한국전력발전소" aria-label="Search for...">
-                                        <span class="input-group-btn pl-1">
-                                            <button class="btn btn-primary " type="button">
-                                                <i class="fas fa-check"></i>&nbsp; 적용
-                                            </button>
-                                            <button class="btn btn-secondary" type="button">
-                                                <i class="fas fa-redo-alt "></i> &nbsp; 취소
-                                            </button>
-                                        </span>
-                                    </div>    
+                                        </button>
+                                        <input type="text" class="form-control pr-2 " placeholder="154kV 중원 S/S" aria-label="Search for...">
+                                    </div>
+                                    <div class="input-group ">
+                                        <span class="input-group-btn pl-1 m-auto">
+                                                <button class="btn btn-primary " type="button">
+                                                    <i class="fas fa-check"></i>&nbsp; 적용
+                                                </button>
+                                                <button class="btn btn-secondary" type="button">
+                                                    <i class="fas fa-redo-alt "></i> &nbsp; 취소
+                                                </button>
+                                        </span> 
+                                    </div>
                                 </form>
                             </div>
                         </div>
