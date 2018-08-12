@@ -2,7 +2,9 @@
 
 - # install java
 - sudo apt install openjdk-11-jdk
+
 - sudo apt install git
+
 - sudo apt install mariadb-server mariadb-client
 - mysql -h localhost -u root 
 - Maria Db > create database psdr ;
