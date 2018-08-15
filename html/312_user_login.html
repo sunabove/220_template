@@ -81,10 +81,12 @@
 										<i class="far fa-user"></i> &nbsp; 아이디 
 										&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
 										<i class="far fa-envelope"></i> &nbsp; 이메일  
-										<input type="text" id="user_id" name="user_id" class="form-control mt-2" aria-describedby="emailHelp" placeholder="아이디" />
+										<input th:value="${ #httpServletRequest.getParameter( 'user_id' ) }" th:classappend="${ login_error_msg } ? border-danger : _" type="text" id="user_id" name="user_id" 
+											class="form-control mt-2" aria-describedby="emailHelp" placeholder="아이디" 
+										/>
 										<small class="form-text text-muted mt-2">
 											&nbsp;&nbsp;&nbsp;&nbsp;
-											<span th:text="${ login_error }" id="user_id_error" class="text-danger">
+											<span th:text="${ login_error_msg }" id="user_id_error" class="text-danger">
 												아이디 또는 이메일 주소를 입력하세요.
 											</span>
 										</small> 
