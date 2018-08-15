@@ -231,7 +231,7 @@
 				$("#user_email").addClass( "border-danger" ) 
 			} 
 			
-			if( ! valid ) {
+			if( ! valid || user_pass == user_pass_confirm ) {
 				// do nothing!
 			} else if ( 1 > user_pass.length ) {
 				valid = false ; 
