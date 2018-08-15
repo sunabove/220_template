@@ -20,7 +20,7 @@ $(function () {
 	}
 
 	// set title attribute automatically
-	$(".psTitle").each(function () {
+	$(".psTitle" ).each(function () {
 		var $t = $(this);
 
 		if ($t.is(":input")) {
@@ -93,10 +93,6 @@ $(function () {
 	});
 
 	// -- dateOfMonth
-
-	// iframe
-
-	// -- iframe
 
 });
 
@@ -1514,6 +1510,11 @@ function onChangeCodeSelectCascade(cascadeFormInfo) {
 // form listener
 $(document).on("submit", "form",
 	function (e) {
+
+		debug( "form submit ....." )
+
+		valid = true ;
+		
 		var ajaxLoader = {
 			"size": "lg",
 			$location: $("body"),
@@ -1522,11 +1523,19 @@ $(document).on("submit", "form",
 
 		if ("function" == typeof getFormSubmitAjaxLoader) {
 			$location = getFormSubmitAjaxLoader();
+		} else {
+			debug( "getFurmSubmitAjaxLoader function does not exist." )
 		}
 
 		showAjaxLoader(ajaxLoader);
 
-		return true;
+		if( "function" == typeof validateSubmitForm ) {
+			valid = validateSubmitForm() ; 
+		} else {
+			debug( "validateSubmitForm function does not exist." )
+		}
+
+		return valid ;
 	}
 );
 // -- form listener

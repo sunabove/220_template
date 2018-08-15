@@ -181,9 +181,10 @@ function synchIframeSizeToScrollSize( iframe ) {
 function consoleClear() {
 	try { 
 		console.clear();
-	} catch( e ) {
-		
+	} catch( e ) { 
 	}
+
+	console.log( "console cleared." );
 }
 
 function clearConsole() {
@@ -201,7 +202,9 @@ function debug( msg ) {
 	
 	var clearConsoleAtStart = false ; 
 	
-	if( clearConsoleAtStart && ( 0 == debugMsgCnt ) ) { 
+	if( false == clearConsoleAtStart ) {
+		// do nothing.
+	} else if( 0 == debugMsgCnt ) { 
 		consoleClear();
 	} else if( ( 0 != debugMsgCnt ) && 0 == ( debugMsgCnt % 1000 ) ) {
 		consoleClear();
