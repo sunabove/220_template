@@ -1563,6 +1563,39 @@ function isValidEmail( email ) {
 	return regex.test(email);
 }
 
+// validateLoginForm
+function validateLoginForm() {
+	valid = true ;
+
+	$("#user_id").removeClass( "border-danger" ) 
+
+	$("#user_id_error").html("")
+	$("#user_pass_error").html("")
+
+	var user_id = $("#user_id").val().trim();
+	var user_pass = $("#user_pass").val().trim();
+
+	if ( 1 > user_id.length ) {
+		valid = false ; 
+
+		$("#user_id_error").html( "아이디 또는 이메일 주소를 입력하세요." )
+		$("#user_id").addClass( "border-danger" ) 
+	} else if ( 1 > user_pass.length ) {
+		valid = false ; 
+
+		$("#user_pass_error").html( "암호를 입력하세요!")
+		$("#user_pass").addClass( "border-danger" ) 
+	} else if ( 6 > user_pass.length ) {
+		valid = false ; 
+
+		$("#user_pass_error").html( "암호는 6자리 이상입니다.")
+		$("#user_pass").addClass( "border-danger" ) 
+	}
+
+	return valid;
+}
+// -- validateLoginForm
+
 /** -- validation */
 
 // -- ars common java script file

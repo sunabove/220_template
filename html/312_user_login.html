@@ -82,15 +82,14 @@
 										&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
 										<i class="far fa-envelope"></i> &nbsp; 이메일  
 										<input th:value="${ #httpServletRequest.getParameter( 'user_id' ) }" th:classappend="${ login_error_msg } ? border-danger : _" type="text" id="user_id" name="user_id" 
-											class="form-control mt-2" aria-describedby="emailHelp" placeholder="아이디" 
+											class="form-control mt-2" placeholder="아이디" 
 										/>
 										<small class="form-text text-muted mt-2">
 											&nbsp;&nbsp;&nbsp;&nbsp;
 											<span th:text="${ login_error_msg }" id="user_id_error" class="text-danger">
 												아이디 또는 이메일 주소를 입력하세요.
 											</span>
-										</small> 
-
+										</small>
 									</div>
 
 									<div class="form-group pb-3">
@@ -192,37 +191,16 @@
 			//$("#user_pass_error").html("")
 		}) ;
 
+		// validateSubmitForm
 		function validateSubmitForm() {
+			var valid = true;
 
-			valid = true ;
-
-			$("#user_id").removeClass( "border-danger" ) 
-
-			$("#user_id_error").html("")
-			$("#user_pass_error").html("")
-
-			var user_id = $("#user_id").val().trim();
-			var user_pass = $("#user_pass").val().trim();
-
-			if ( 1 > user_id.length ) {
-				valid = false ; 
-
-				$("#user_id_error").html( "아이디 또는 이메일 주소를 입력하세요." )
-				$("#user_id").addClass( "border-danger" ) 
-			} else if ( 1 > user_pass.length ) {
-				valid = false ; 
-
-				$("#user_pass_error").html( "암호를 입력하세요!")
-				$("#user_pass").addClass( "border-danger" ) 
-			} else if ( 6 > user_pass.length ) {
-				valid = false ; 
-
-				$("#user_pass_error").html( "암호는 6자리 이상입니다.")
-				$("#user_pass").addClass( "border-danger" ) 
-			}
+			valid = validateLoginForm();
 
 			return valid;
 		}
+		// -- validateSubmitForm
+
 	</script>
 </body>
 
