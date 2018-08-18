@@ -28,7 +28,7 @@
                             <td>
                                 &nbsp;
                                 <a th:href="@{/gen/about.html}" class="text-muted" href="#">
-                                    <img src="../rsc/psdr-custom/img/product.png" alt="product" style="height: 62px;">
+                                    <img th:src="@{ /rsc/psdr-custom/img/product.png }" src="../rsc/psdr-custom/img/product.png" alt="product" style="height: 62px;">
                                 </a>
                             </td>
 
@@ -52,37 +52,38 @@
                     <tbody>
                         <tr>
                             <td>
-                                <h5 class=" font-weight-bold text-primary p-0 m-0"> 경기지역본부 </h5>
-
+                                <h5 th:text="${ session.sysName_01.value }" class="font-weight-bold text-primary p-0 m-0"> 경기지역본부 </h5>
                             </td>
                             <td>
                                 <h5 class="card-title text-dark font-weight-bold p-0 mb-0">
-                                    &nbsp;성남전력지사 &nbsp;&nbsp;
+                                    &nbsp; <span th:text="${ session.sysName_02.value }" >성남전력지사</span>&nbsp;&nbsp;
                                 </h5>
                             </td>
 
                             <td class="text-left">
                                 <h6 class="card-body p-0 m-0 text-dark">
                                     <i class="far fa-clock"></i> &nbsp;
-                                    <span>2018-07-25 14:25</span>
+                                    <span th:text="${ #dates.format(#dates.createNow(),'YYYY-MM-dd HH:mm') }" >2018-07-25 14:25</span>
                                 </h6>
                             </td>
                             <td class="text-left">
                                 <h6 class="card-body p-0 m-0 text-dark">
                                     <i class="far fa-user"></i> &nbsp; 접속자 :
-                                    <span>1,234</span>명
+                                    <span th:text="${ application.connUserNo.getValueFormat() }" >1,234</span>&nbsp;명
                                 </h6>
                             </td>
                             <td class="text-left">
                                 <h6 class="card-body p-0 m-0 text-dark">
                                     <i class="fa fa-download"></i> &nbsp; 다운로드 :
-                                    <span>2,345</span>건
+                                    <span th:text="${ application.totDownNo.getValueFormat() }">2,345</span>&nbsp;건
                                 </h6>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2" class="text-center">
-                                <h3 class="card-title text-warning font-weight-bold mb-0 "> 154kV 중원 변전소 &nbsp;</h3>
+                                <h3 class="card-title text-warning font-weight-bold mb-0 " >
+                                    <span th:text="${ session.sysName_03.value }" >154kV 중원 변전소</span>&nbsp;
+                                </h3>
                             </td>
                             <td colspan="2" class="text-left">
                                 <h6 class="card-body p-0 m-0">
