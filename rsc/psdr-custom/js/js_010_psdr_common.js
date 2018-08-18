@@ -1563,6 +1563,11 @@ function isValidEmail( email ) {
 	return regex.test(email);
 }
 
+function isValidUserId( userId ) {
+	var regex = /^[0-9a-zA-Z]+$/;
+	return regex.test(userId) && userId.length > 5 ; 
+}
+
 // validateLoginForm
 function validateLoginForm() {
 	valid = true ;
