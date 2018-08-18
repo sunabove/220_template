@@ -136,13 +136,13 @@
 
     <main style="margin-top: 120px; margin-bottom: 50px;">
 
-        <section class="container" >
+        <section class="container">
 
             <div class="row bg-info rouded">
                 <div class="col-5">
                     <a class="navbar-brand font-weight-bold text-dark " href="#">
                         <i class="fas fa-bars d-inline-block"></i>&nbsp;
-                        <p class="m-0 pt-1  d-inline-block">시스템설정</p>
+                        <p class="m-0 pt-1  d-inline-block">시스템 설정</p>
                     </a>
                 </div>
                 <div class="col-7">
@@ -157,22 +157,22 @@
             <!-- 이미지 추가 E-->
 
             <div class="row my-4">
-                <div class="col-6 ">
-                    <img class="d-none d-lg-block m-auto img-thumbnail" alt="slider" src="../rsc/psdr-custom/img/slider1.png">
-
+                <div class="col-8">
+                    <img class="m-auto img-thumbnail w-100" alt="slider" src="../rsc/psdr-custom/img/slider1.png">
                 </div>
-                <div class="col-6 my-auto m-auto">
+                <div class="col-4 my-auto m-auto">
                     <div class="row">
+
                         <div class="col-12 card flex-md-row mb-1 shadow-sm h-md-250 bg-light p-0 copyable">
                             <div class="card-body d-flex flex-column ">
                                 <form>
                                     <div class="form-group  copyable m-0 ">
                                         &nbsp;
                                         <i class="fas fa-file-image text-primary"></i> &nbsp;
-                                        <label for="exampleInputEmail1 text-white" class="text-primary">배경화면 그림 </label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <label class="text-primary"> 타이틀 그림 </label>
+                                        <br/>
                                         <div class="input-group ">
-                                            <input type="text" class="form-control pr-2 " placeholder="myPicture.png" aria-label="Search for...">
+                                            <input type="text" class="form-control pr-2 " placeholder="그림 선택" aria-label="Search for...">
                                             <span class="input-group-btn pl-1">
                                                 <button class="btn btn-primary " type="button">
                                                     <i class="fas fa-check"></i>&nbsp; 적용
@@ -186,33 +186,58 @@
                                 </form>
                             </div>
                         </div>
+
+                        <div class="col-12 card flex-md-row mb-1 shadow-sm h-md-250 bg-light p-0 copyable">
+                            <div class="card-body d-flex flex-column ">
+                                <form>
+                                    <div class="form-group  copyable m-0 ">
+                                        &nbsp;
+                                        <i class="fas fa-file-image text-primary"></i> &nbsp;
+                                        <label class="text-primary"> 메인 화면 배경 그림 </label>
+                                        <br/>
+                                        <div class="input-group ">
+                                            <input type="text" class="form-control pr-2 " placeholder="그림 선택" aria-label="Search for...">
+                                            <span class="input-group-btn pl-1">
+                                                <button class="btn btn-primary " type="button">
+                                                    <i class="fas fa-check"></i>&nbsp; 적용
+                                                </button>
+                                                <button class="btn btn-secondary" type="button">
+                                                    <i class="fas fa-redo-alt "></i> &nbsp; 취소
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                         <div class="col-12 card flex-md-row mb-4 shadow-sm h-md-250 bg-light p-0 copyable">
                             <div class="card-body d-flex flex-column ">
                                 <form>
                                     <div class="input-group mb-2">
                                         <button class="btn btn-primary " type="button">
-                                            <i class="fas fa-edit"></i>&nbsp; 지역본부
+                                            <i class="fas fa-edit"></i>&nbsp; 지역본부 
                                         </button>
-                                        <input type="text" class="form-control pr-2 " placeholder="경기지역본부" aria-label="Search for...">
+                                        <input th:value="${ sysName_01_txt }" id="sysName_01" name="sysName_01" type="text" class="form-control pr-2 " placeholder="지역본부" />
                                     </div>
                                     <div class="input-group mb-2">
                                         <button class="btn btn-primary " type="button">
-                                            <i class="fas fa-edit"></i>&nbsp; 전력지사
+                                            <i class="fas fa-edit"></i>&nbsp; 전력지사 
                                         </button>
-                                        <input type="text" class="form-control pr-2 " placeholder="성남전력지사" aria-label="Search for...">
+                                        <input th:value="${ sysName_02_txt }" id="sysName_02" name="sysName_02" type="text" class="form-control pr-2 " placeholder="전력지사" />
                                     </div>
                                     <div class="input-group mb-3">
                                         <button class="btn btn-primary " type="button">
-                                            <i class="fas fa-edit"></i>&nbsp; 변전소명
+                                            <i class="fas fa-edit"></i>&nbsp; 변전소명 
                                         </button>
-                                        <input type="text" class="form-control pr-2 " placeholder="154kV 중원 S/S" aria-label="Search for...">
+                                        <input th:value="${ sysName_03_txt }" id="sysName_03" name="sysName_03" type="text" class="form-control pr-2 " placeholder="변전소명 " />
                                     </div>
                                     <div class="input-group ">
                                         <span class="input-group-btn pl-1 m-auto">
-                                            <button class="btn btn-primary " type="button">
-                                                <i class="fas fa-check"></i>&nbsp; 적용
+                                            <button class="btn btn-primary " type="submit">
+                                                <i class="fas fa-check"></i>&nbsp; 저장
                                             </button>
-                                            <button class="btn btn-secondary" type="button">
+                                            <button th:if="${ false }" class="btn btn-secondary" type="submit" id="cancel_names" name="cancel_names" >
                                                 <i class="fas fa-redo-alt "></i> &nbsp; 취소
                                             </button>
                                         </span>
