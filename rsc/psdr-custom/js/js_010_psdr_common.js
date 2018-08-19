@@ -1603,4 +1603,18 @@ function validateLoginForm() {
 
 /** -- validation */
 
+$(function () {
+	// page link
+	$( ".page-link" ).click( 
+		function () {
+			var page = $( this ).html().toInt() - 1 ;
+			page = page < 0 ? 0 : page ;
+			$( "form input[name=page]" ).val( page );
+			$( "form" ).submit();
+		}
+	);
+	// -- page -link
+} 
+);
+
 // -- ars common java script file
