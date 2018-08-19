@@ -135,6 +135,8 @@
 
     </nav>
 
+    <form>
+
     <main>
 
         <section class="container" style=" margin-top:150px; margin-bottom: 50px;">
@@ -174,65 +176,56 @@
                     <div class="card p-2" style="overflow: hidden;">
                         <div class="form-group row px-2 pb-2 pt-0 " style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);">
                             <label class="col-2 col-form-label form-control-label text-muted d-inline-block ">
-                                <i class="fas fa-dot-circle pr-2 text-primary"></i>제목
+                                <i class="fas fa-dot-circle pr-2 text-primary"></i>
+                                제목
                             </label>
-                            <div class="col-8 d-inline-block">
-
-                                <input class="form-control is-invalid " type="text" required="" id="un" name="un" value="시스템 파일 업로드">
+                            <div class="col-7 d-inline-block">
+                                <input th:value="${ article.title }" name="article_title" class="form-control is-invalid " type="text" 
+                                    required="" 
+                                    value="시스템 파일 업로드" 
+                                />
                             </div>
-                            <div class="col-2 d-inline-block">
-                                <input class="form-control" type="text" required="" id="un" name="un" value="작성일 : 2018.07.27">
+                            <div class="col-3 d-inline-block">
+                                <input th:value="${ #dates.format( article.upDt, 'yyyy-MM-dd hh:mm:ss') }" 
+                                    class="form-control" style="max-width: 170px;"
+                                    type="text" 
+                                    required="" readonly
+                                    value="2018-07-27 12:33:40" 
+                                />
                             </div>
                         </div>
                         <div class="form-group row p-2">
                             <label class="col-2 col-form-label form-control-label text-muted d-inline-block ">
-                                <i class="fas fa-dot-circle pr-2 text-primary"></i>작성자
+                                <i class="fas fa-dot-circle pr-2 text-primary"></i>
+                                작성자
                             </label>
                             <div class="col-3 d-inline-block">
-                                <input class="form-control " type="text" required="" id="un" name="un" value="sunabove">
+                                <input th:value="${ article.upUser.userId }" name="article_content" class="form-control " type="text" 
+                                    required="" readonly
+                                    value="sunabove" 
+                                />
                             </div>
 
                         </div>
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1"></label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">본문: 옛날에 활동했던 미니 입니다.잘들 …..
-                                </textarea>
-                            </div>
-                        </form>
-                        <div class="card p-2" style="overflow: hidden;">
-                            <label class="col-12 col-form-label form-control-label text-muted d-inline-block ">
-                                <i class="fas fa-dot-circle pr-2 text-dark col-1"></i>
-                                <label class=" col-5" for="inlineFormCustomSelectPref">괴룡똘리</label>
-                                <label class="mr-sm-2 col-5 float-right" for="inlineFormCustomSelectPref">2018.08.09 07:06</label>
-                                <label class="mr-lg-2 text-dark" for="inlineFormCustomSelectPref">너무 좋은 글입니다.</label>
-                            </label>
-
+                        <div class="form-group"> 
+                            <textarea th:text="${ article.content }" class="form-control" rows="20" >
+                                본문: 옛날에 활동했던 미니 입니다.잘들 …..
+                            </textarea>
                         </div>
+                    </div> 
 
-                    </div>
-                    <div class="row">
-                        <div class="col-12 pt-4">
-                            <div class="input-group">
-
-                                <input type="text" class="form-control" placeholder="댓글" aria-label="Product name">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-secondary" type="button">
-                                        <i class="far fa-comment pr-2 text-dark"></i>등록
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
                     <div class="text-center pt-4">
-                        <button class="btn btn-primary mr-5" type="button">
-                            <i class="far fa-heart pr-2 "></i>저장
+                        <button id="save-cmd" class="btn btn-primary " type="button">
+                            <i class="fa fa-save pr-2 "></i>
+                            저장
                         </button>
-                        <button class="btn btn-secondary" type="button">
-                            <i class="fas fa-redo-alt pr-2 text-dark"></i>취소
+                        <button id="cancel-cmd" class="btn btn-secondary" type="button">
+                            <i class="fas fa-redo-alt pr-2 text-dark"></i>
+                            취소
                         </button>
-                        <button class="btn btn-secondary ml-5" type="button">
-                            <i class="fas fa-times pr-2 text-dark"></i>삭제
+                        <button id="delete-cmd" class="btn btn-secondary " type="button">
+                            <i class="fas fa-times pr-2 text-dark"></i>
+                            삭제
                         </button>
 
                     </div>
@@ -240,7 +233,13 @@
             </div>
 
         </section>
+
     </main>
+
+    <input type="hidden" name="article_id" value="" th:value="${ article.articleId }" />
+    <input type="hidden" name="cmd" value="" />
+
+    </form>
 
     <footer th:replace="024_layout_footer.html" class="bg-dark text-center">
 
@@ -300,6 +299,22 @@
 
         <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
     </div>
+
+    <script>
+        $( "#cancel-cmd" ).click( function() {
+            window.location.href = "list.html" ; 
+        });
+
+        $( "#delete-cmd" ).click( function() { 
+            $( "form input[name=cmd]" ).val( "delete" ); 
+            $( "form" ).submit();
+        });
+
+        $( "#save-cmd" ).click( function() { 
+            $( "form input[name=cmd]" ).val( "save" ); 
+            $( "form" ).submit();
+        });
+    </script>
 
 </body>
 
