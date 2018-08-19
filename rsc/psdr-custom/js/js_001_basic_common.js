@@ -55,7 +55,6 @@ String.prototype.toInt = function(){
 	try {  
 		num = parseFloat( this.trim().split(",").join( "" ) );
 	} catch ( e ) {
-		
 	}
     
 	if( isNaN(num) ) return 0 ;

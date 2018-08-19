@@ -291,6 +291,7 @@
 
         </main>
 
+        <input th:value="${ param.page }" type="hidden" name="page" value="0" />
     </form>
 
     <footer th:replace="024_layout_footer.html" class="bg-dark text-center">
@@ -351,6 +352,17 @@
 
         <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
     </div>
+
+    <script>
+        $( ".page-link" ).click( 
+            function () {
+                var page = $( this ).html().toInt() - 1 ;
+                page = page < 0 ? 0 : page ;
+                $( "form input[name=page]" ).val( page );
+                $( "form" ).submit();
+            }
+        );
+    </script>
 
 </body>
 
