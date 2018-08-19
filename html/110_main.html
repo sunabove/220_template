@@ -142,8 +142,9 @@
         <section class="container" style=" margin-top:150px; margin-bottom: 150px;">
 
             <div class="row my-4">
-                <div class="col-8" style=" " >
-                    <img class="img-thumbnail" alt="변전소 배경 화면" 
+                <div class="col-8" >
+                    <img th:src="${sysBgImg_02} ? @{/file/sys/SYS_BG_IMG_02} : @{/rsc/psdr-custom/img/slider1.png}"
+                        class="img-thumbnail" alt="변전소 배경 화면" 
                         style=" width:100%; " 
                         src="../rsc/psdr-custom/img/slider1.png"
                     /> 

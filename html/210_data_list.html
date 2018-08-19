@@ -142,7 +142,10 @@
             <!-- 이미지 추가 S-->
             <div class="row">
                 <div class="col">
-                    <img src="../rsc/psdr-custom/img/slider.jpg" alt="slider" class="img-fluid rounded mx-auto my-3 d-block img-thumbnail">
+                    <img th:src="${sysBgImg_01} ? @{/file/sys/SYS_BG_IMG_01} : @{/rsc/psdr-custom/img/slider.jpg}" 
+                        src="../rsc/psdr-custom/img/slider.jpg" 
+                        alt="타이틀 이미지" 
+                        class="img-fluid rounded mx-auto my-3 d-block img-thumbnail" />
                 </div>
             </div>
             <!-- 이미지 추가 E-->

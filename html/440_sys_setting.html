@@ -152,13 +152,21 @@
 
             <!-- 이미지 추가 S-->
             <div>
-                <img src="../rsc/psdr-custom/img/slider.jpg" alt="slider" class="img-fluid rounded mx-auto my-3 d-block img-thumbnail">
+                <img th:src="${sysBgImg_01} ? @{/file/sys/SYS_BG_IMG_01} : @{/rsc/psdr-custom/img/slider.png}" 
+                    class="img-fluid rounded mx-auto my-3 d-block img-thumbnail" 
+                    src="../rsc/psdr-custom/img/slider.jpg" 
+                    alt="타이틀 이미지" 
+                    />
             </div>
             <!-- 이미지 추가 E-->
 
             <div class="row my-4">
                 <div class="col-8">
-                    <img class="m-auto img-thumbnail w-100" alt="slider" src="../rsc/psdr-custom/img/slider1.png">
+                    <img th:src="${sysBgImg_02} ? @{/file/sys/SYS_BG_IMG_02} : @{/rsc/psdr-custom/img/slider1.png}" 
+                        class="m-auto img-thumbnail w-100" 
+                        src="../rsc/psdr-custom/img/slider1.png" 
+                        alt="배경 화면 이미지" 
+                    />
                 </div>
                 <div class="col-4 my-auto m-auto">
                     <div class="row">
