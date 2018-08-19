@@ -68,14 +68,14 @@
                             </td>
                             <td class="text-left">
                                 <h6 class="card-body p-0 m-0 text-dark">
-                                    <i class="far fa-user"></i> &nbsp; 접속자 :
-                                    <span th:text="${ connUserNo.value }" >1,234</span>&nbsp;명
+                                    <i class="far fa-user"></i> &nbsp; 접속 :
+                                    <span th:text="${ connUserNo.getValueFormat() }" >1,234</span>&nbsp;명
                                 </h6>
                             </td>
                             <td class="text-left">
                                 <h6 class="card-body p-0 m-0 text-dark"> 
                                     <i class="fa fa-download"></i> &nbsp; 다운로드 :
-                                    <span th:text="${ totDownNo.value }">2,345</span>&nbsp;건
+                                    <span th:text="${ totDownNo.getValueFormat() }">2,345</span>&nbsp;건
                                 </h6>
                             </td>
                         </tr>
@@ -96,21 +96,25 @@
                                 </h6>
                             </td>
                             <td th:if="${ loginUser_id }" class="text-right">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="far fa-user"></i>&nbsp;
                                     <span th:text="${ loginUser_id }" >접속 아이디</span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDd">
-                                    <a th:href="@{/user/logout.html}" class="dropdown-item" href="#">
+                                <div class="dropdown-menu dropdown-menu-right" >
+                                    <a th:href="@{/user/logout.html}" class="dropdown-item" href="#" >
                                         <i class="fa fa-arrow-alt-circle-right"></i> &nbsp;&nbsp; 로그 아웃
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a th:if="${ loginUser.isAdmin() }" th:href="@{/sys/setting.html}" class="dropdown-item" href="#">
-                                        <i class="far fa-bell "></i> &nbsp;&nbsp; 시스템 설정
-                                    </a>
                                     <a th:href="@{/user/info.html}" class="dropdown-item" href="#">
                                         <i class="fa fa-user-tag "></i> &nbsp; 사용자 정보
                                     </a>
+                                    <div th:if="${ loginUser.isAdmin() }" class="dropdown-divider"></div>
+                                    <a th:if="${ loginUser.isAdmin() }" th:href="@{/sys/setting.html}" class="dropdown-item" href="#">
+                                        <i class="fa fa-bell "></i> &nbsp;&nbsp; 시스템 설정
+                                    </a>
+                                    <a th:if="${ loginUser.isAdmin() }" th:href="@{/user/manage.html}" class="dropdown-item" href="#">
+                                        <i class="fa fa-user-friends "></i> &nbsp;&nbsp; 사용자 관리
+                                    </a>                                    
                                 </div>
                             </td>
                         </tr>

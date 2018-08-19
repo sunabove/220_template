@@ -142,7 +142,7 @@
                 <div class="col-5">
                     <a class="navbar-brand font-weight-bold text-dark " href="#">
                         <i class="fas fa-bars d-inline-block"></i>&nbsp;
-                        <p class="m-0 pt-1  d-inline-block">사용자 권한 관리</p>
+                        <p class="m-0 pt-1  d-inline-block">사용자 관리</p>
                     </a>
                 </div>
                 <div class="col-7">
@@ -164,7 +164,7 @@
 
                     <div class="table-responsive">
 
-                        <table class="table table-hover text-center">
+                        <table class="table table-sm table-hover text-center">
                             <colgroup>
                                 <col width="100" />
                                 <col width="200" />
@@ -182,12 +182,13 @@
                                     <th class="w-20">
                                         <i class="fa fa-user-cog"></i>&nbsp;&nbsp;권한 </th>
                                     <th class="w-20">
-                                        <i class="fa fa-user-lock"></i>&nbsp;&nbsp;삭제 </th>
+                                        <i class="fa fa-user-lock"></i>&nbsp;&nbsp;상태 </th>
                                 </tr>
-                                <tr>
-                                    <td class="align-middle">1</td>
-                                    <td class="align-middle">sunabove</td>
-                                    <td class="align-middle">abc@dir.com</td>
+
+                                <tr th:each="item, i : ${users}" >
+                                    <td class="align-middle"><span th:text="${ i.count }" >1</span></td>
+                                    <td class="align-middle"><span th:text="${ item.userId }">sunabove</span></td>
+                                    <td class="align-middle"><span th:text="${ item.email }">abc@dir.com</span></td>
                                     <td class="align-middle">
                                         <div class="btn-group">
                                             <div class="dropdown">
@@ -205,116 +206,23 @@
                                     </td>
                                     <td class="align-middle">
                                         <button type="button" class="btn btn-primary align-bottom mr-1 w-100">
-                                            <i class="fa fa-user-slash"></i>&nbsp; 삭&nbsp;제
+                                            <i class="fa fa-user-slash"></i>
+                                            &nbsp; 
+                                            <span th:text="${ item.deleted } ? '복 원' : '잠 금' "> 잠금 </span>
                                         </button>
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td class="align-middle">2</td>
-                                    <td class="align-middle">sunabove</td>
-                                    <td class="align-middle">abc@dir.com</td>
-                                    <td class="align-middle">
-                                        <div class="btn-group">
-                                            <div class="dropdown">
-                                                <button class="btn btn-primary dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <i class="fa fa-user-circle"></i>&nbsp;&nbsp;관리자
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">일 반</a>
-                                                    <a class="dropdown-item" href="#">관리자</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">
-                                        <button type="button" class="btn btn-primary align-bottom mr-1 w-100">
-                                            <i class="fa fa-redo"></i>&nbsp; 복&nbsp;원
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="">
-                                    <td class="align-middle">3</td>
-                                    <td class="align-middle">sunabove</td>
-                                    <td class="align-middle">abc@dir.com</td>
-                                    <td class="align-middle">
-                                        <div class="btn-group">
-                                            <div class="dropdown">
-                                                <button class="btn btn-primary dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <i class="fa fa-user"></i>&nbsp;&nbsp;일&nbsp;&nbsp;&nbsp;반
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">일 반</a>
-                                                    <a class="dropdown-item" href="#">관리자</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">
-                                        <button type="button" class="btn btn-primary align-bottom mr-1 w-100">
-                                            <i class="fa fa-user-slash"></i>&nbsp; 삭&nbsp;제
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr class="">
-                                    <td class="align-middle">4</td>
-                                    <td class="align-middle">sunabove</td>
-                                    <td class="align-middle">abc@dir.com</td>
-                                    <td class="align-middle">
-                                        <div class="btn-group">
-                                            <div class="dropdown">
-                                                <button class="btn btn-primary dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <i class="fa fa-user-circle"></i>&nbsp;&nbsp;관리자
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">일 반</a>
-                                                    <a class="dropdown-item" href="#">관리자</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">
-                                        <button type="button" class="btn btn-primary align-bottom mr-1 w-100">
-                                            <i class="fa fa-redo"></i>&nbsp; 복&nbsp;원
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="">
-                                    <td class="align-middle">5</td>
-                                    <td class="align-middle">sunabove</td>
-                                    <td class="align-middle">abc@dir.com</td>
-                                    <td class="align-middle">
-                                        <div class="btn-group">
-                                            <div class="dropdown">
-                                                <button class="btn btn-primary dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <i class="fa fa-user"></i>&nbsp;&nbsp;일&nbsp;&nbsp;&nbsp;반
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">일반</a>
-                                                    <a class="dropdown-item" href="#">관리자</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="align-middle">
-                                        <button type="button" class="btn btn-primary align-bottom mr-1 w-100">
-                                            <i class="fa fa-user-slash"></i>&nbsp;삭&nbsp;제
-                                        </button>
-                                    </td>
+                                <tr th:each="i: ${ #numbers.sequence( 1, 10 - users.size() ) }" >
+                                    <td colspan="100%" >&nbsp;</td>
                                 </tr>
 
                             </tbody>
 
                             <tfoot>
                                 <tr class="text-center">
-                                    <th class="text-center" colspan="100%">
-                                        <ul class="pagination justify-content-center">
+                                    <th class="text-center" colspan="100%"> 
+                                        <ul class="pagination justify-content-center mt-4">
                                             <li class="page-item">
                                                 <a class="page-link" href="#" aria-label="Previous">
                                                     <span aria-hidden="true">&laquo;</span>
