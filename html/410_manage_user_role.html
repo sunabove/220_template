@@ -193,7 +193,7 @@
 
                                     <tr th:each="item, i : ${users}">
                                         <td class="align-middle">
-                                            <span th:text="${ item.rowNumer }">1</span> 
+                                            <span th:text="${ item.rowNumer }">1</span>
                                         </td>
                                         <td class="align-middle">
                                             <span th:text="${ item.userId }">sunabove</span>
@@ -202,26 +202,20 @@
                                             <span th:text="${ item.email }">abc@dir.com</span>
                                         </td>
                                         <td class="align-middle">
-                                            <div class="btn-group">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-primary dropdown-toggle w-100" type="button" id="dropdownMenuButton_01" data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <i class="fa fa-user"></i>&nbsp;&nbsp;사용자
-                                                    </button>
-                                                    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton_01">
-                                                        <a class="dropdown-item text-center" href="#">일 반</a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item text-center" href="#">관리자</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <select th:user_id="${ item.userId }" class="custom-select cmd_user_role" user_id="">
+                                                <option th:selected="${ ! item.isAdminRole() }" value="USER-ROLE-NORMAL" >
+                                                    일 &nbsp; 반 
+                                                </option>
+                                                <option th:selected="${   item.isAdminRole() }" value="USER-ROLE-ADMIN">
+                                                    관리자
+                                                </option>
+                                            </select>
                                         </td>
                                         <td class="align-middle">
-                                            <button type="button" class="btn btn-primary align-bottom mr-1 w-100">
-                                                <i class="fa fa-user-slash"></i>
-                                                &nbsp;
-                                                <span th:text="${ item.deleted } ? '복 원' : '잠 금' "> 잠금 </span>
-                                            </button>
+                                            <select th:user_id="${ item.userId }" class="custom-select cmd_user_delete" user_id="">
+                                                <option th:selected="${ ! item.deleted }" value="0" > 정 상 </option>
+                                                <option th:selected="${   item.deleted }" value="1" > 삭 제 </option>
+                                            </select>
                                         </td>
                                     </tr>
 
@@ -237,18 +231,17 @@
                                             <ul class="pagination justify-content-center mt-4">
                                                 <li class="page-item">
                                                     <a class="page-link page-first" href="#" aria-label="Previous">
-                                                        <span aria-hidden="true">&laquo;</span> 
+                                                        <span aria-hidden="true">&laquo;</span>
                                                     </a>
-                                                </li> 
+                                                </li>
                                                 <li th:each="i : ${ users.getPageList( param.page ) }" class="page-item">
-                                                    <a th:text="${ #numbers.formatInteger( i + 1 , 0,'COMMA' ) }" 
-                                                        class="page-link page-no" href="#">
+                                                    <a th:text="${ #numbers.formatInteger( i + 1 , 0,'COMMA' ) }" class="page-link page-no" href="#">
                                                         1
                                                     </a>
-                                                </li> 
+                                                </li>
                                                 <li class="page-item">
                                                     <a class="page-link page-last" href="#" aria-label="Next">
-                                                        <span aria-hidden="true">&raquo;</span> 
+                                                        <span aria-hidden="true">&raquo;</span>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -265,7 +258,10 @@
 
         </main>
 
-        <input th:value="${ param.page }" type="hidden" name="page" value="0" />
+        <input th:value="${ param.page }" type="hidden" name="page"        value="0" />
+        <input                            type="hidden" name="user_id"     value=""  />
+        <input                            type="hidden" name="user_role"   value=""  />
+        <input                            type="hidden" name="user_delete" value=""  />
     </form>
 
     <footer th:replace="024_layout_footer.html" class="bg-dark text-center">
@@ -328,6 +324,17 @@
     </div>
 
     <script>
+        $( ".cmd_user_role" ).on( "change", function () {
+            $( "form input[name=user_role]" ).val( $(this).val() ); 
+            $( "form input[name=user_id]" ).val( $(this).attr( "user_id" ) ); 
+            $( "form" ).submit();
+        }); 
+
+        $( ".cmd_user_delete" ).on( "change", function () {
+            $( "form input[name=user_delete]" ).val( $(this).val() );
+            $( "form input[name=user_id]" ).val( $(this).attr( "user_id" ) ); 
+            $( "form" ).submit();
+        }); 
         
     </script>
 
