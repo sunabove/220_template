@@ -6,3 +6,6 @@ th:href="@{/main/main.html}"
 
 th:classappend="${isAdmin} ? adminclass : userclass"
 
+<td th:text="${#dates.format(sprint.releaseDate, 'dd-MMM-yyyy')}"></td>
+
+<td th:text="${ #dates.format(sprint.releaseDate, 'yyyy-MMM-dd hh:mi:ss') }"></td>
