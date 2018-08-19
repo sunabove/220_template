@@ -1605,9 +1605,32 @@ function validateLoginForm() {
 
 $(function () {
 	// page link
-	$( ".page-link" ).click( 
+	$( ".page-no" ).click( 
 		function () {
 			var page = $( this ).html().toInt() - 1 ;
+			page = page < 0 ? 0 : page ;
+			$( "form input[name=page]" ).val( page );
+			$( "form" ).submit();
+		}
+	);
+
+	$( ".page-first" ).click( 
+		function () {
+			var page = $( "form input[name=page]" ).val().toInt() ;
+			page = Math.floor( page/10 );
+			page = page*10 - 1;
+			page = page < 0 ? 0 : page ;
+			$( "form input[name=page]" ).val( page );
+			$( "form" ).submit();
+		}
+	);
+
+	$( ".page-last" ).click( 
+		function () {
+			var page = $( "form input[name=page]" ).val().toInt() ;
+			page = Math.floor( page/10 );
+			page = page + 1;
+			page = page*10;
 			page = page < 0 ? 0 : page ;
 			$( "form input[name=page]" ).val( page );
 			$( "form" ).submit();

@@ -236,15 +236,18 @@
                                         <th class="text-center" colspan="100%">
                                             <ul class="pagination justify-content-center mt-4">
                                                 <li class="page-item">
-                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                    <a class="page-link page-first" href="#" aria-label="Previous">
                                                         <span aria-hidden="true">&laquo;</span> 
                                                     </a>
                                                 </li> 
                                                 <li th:each="i : ${ users.getPageList( param.page ) }" class="page-item">
-                                                    <a th:text="${ #numbers.formatInteger( i + 1 , 0,'COMMA' ) }" class="page-link" href="#">1</a>
+                                                    <a th:text="${ #numbers.formatInteger( i + 1 , 0,'COMMA' ) }" 
+                                                        class="page-link page-no" href="#">
+                                                        1
+                                                    </a>
                                                 </li> 
                                                 <li class="page-item">
-                                                    <a class="page-link" href="#" aria-label="Next">
+                                                    <a class="page-link page-last" href="#" aria-label="Next">
                                                         <span aria-hidden="true">&raquo;</span> 
                                                     </a>
                                                 </li>
