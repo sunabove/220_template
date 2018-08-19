@@ -200,7 +200,7 @@
                                 작성자
                             </label>
                             <div class="col-3 d-inline-block">
-                                <input th:value="${ article.upUser.userId }" name="article_content" class="form-control " type="text" 
+                                <input th:value="${ article.upUser.userId }" class="form-control " type="text" 
                                     required="" readonly
                                     value="sunabove" 
                                 />
@@ -208,7 +208,7 @@
 
                         </div>
                         <div class="form-group"> 
-                            <textarea th:text="${ article.content }" class="form-control" rows="20" >
+                            <textarea th:text="${ article.content }" name="article_content" class="form-control" rows="20" >
                                 본문: 옛날에 활동했던 미니 입니다.잘들 …..
                             </textarea>
                         </div>
