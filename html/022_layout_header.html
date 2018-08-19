@@ -91,7 +91,11 @@
                                     &nbsp; 
                                     <a th:href="@{/article/list.html}" class="text-muted" href="#">
                                         공지사항 :
-                                        <span> 홈페이지가 오픈되었습니다.</span>
+                                        <span th:text="${ noticeArticle } ? ${ noticeArticle.title } : '홈 페이지 오픈' " 
+                                            style="overflow: hidden; text-overflow: ellipsis; "
+                                        >
+                                            홈페이지가 오픈되었습니다.
+                                        </span>
                                     </a>
                                 </h6>
                             </td>
