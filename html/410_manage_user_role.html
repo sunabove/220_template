@@ -193,7 +193,7 @@
 
                                     <tr th:each="item, i : ${users}" class="article_row"  >
                                         <td class="align-middle" >
-                                            <span th:text="${ item.rowNumer }">1</span>
+                                            <span th:text="${ #numbers.formatInteger( item.rowNumer, 0,'COMMA' ) }">1</span>
                                         </td>
                                         <td class="align-middle">
                                             <span th:text="${ item.userId }">sunabove</span>

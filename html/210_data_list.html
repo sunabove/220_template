@@ -135,319 +135,163 @@
 
     </nav>
 
-    <main style="margin-top: 90px;">
+    <form>
 
-        <section class="container">
+        <main style="margin-top: 90px;">
 
-            <!-- 이미지 추가 S-->
-            <div class="row">
-                <div class="col">
-                    <img th:src="${sysBgImg_01} ? @{/file/sys/SYS_BG_IMG_01} : @{/rsc/psdr-custom/img/slider.jpg}" 
-                        src="../rsc/psdr-custom/img/slider.jpg" 
-                        alt="타이틀 이미지" 
-                        class="img-fluid rounded mx-auto my-3 d-block img-thumbnail" />
+            <section class="container">
+
+                <!-- 이미지 추가 S-->
+                <div class="row">
+                    <div class="col">
+                        <img th:src="${sysBgImg_01} ? @{/file/sys/SYS_BG_IMG_01} : @{/rsc/psdr-custom/img/slider.jpg}" src="../rsc/psdr-custom/img/slider.jpg"
+                            alt="타이틀 이미지" class="img-fluid rounded mx-auto my-3 d-block img-thumbnail" />
+                    </div>
                 </div>
-            </div>
-            <!-- 이미지 추가 E-->
+                <!-- 이미지 추가 E-->
 
-            <div class="row bg-info rouded">
-                <div class="col-5">
-                    <a class="navbar-brand font-weight-bold text-dark " href="#">
-                        <i class="fas fa-bars d-inline-block"></i>&nbsp;
-                        <p class="m-0 pt-1  d-inline-block">고장데이터 다운로드</p>
-                    </a>
-                </div>
-                <div class="col-7">
-                    <div class="input-group my-2">
-                        <ul class="mr-auto">
-                        </ul>
-                        <div class="dropdown pr-2">
-                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="far fa-calendar-alt pr-1"></i>
-                                2018-08-07
-                            </button>
-                            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"></a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"></a>
+                <div class="row bg-info rouded">
+                    <div class="col-5">
+                        <a class="navbar-brand font-weight-bold text-dark " href="#">
+                            <i class="fas fa-bars d-inline-block"></i>&nbsp;
+                            <p class="m-0 pt-1  d-inline-block">고장데이터 다운로드</p>
+                        </a>
+                    </div>
+                    <div class="col-7">
+                        <div class="input-group my-2">
+                            <ul class="mr-auto">
+                            </ul>
+                            <div class="dropdown pr-2">
+                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="far fa-calendar-alt pr-1"></i>
+                                    2018-08-07
+                                </button>
+                                <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#"></a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#"></a>
+                                </div>
                             </div>
+                            <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                                <i class="fas fa-search"></i>
+                                &nbsp; 검색
+                            </button>
                         </div>
-                        <button class="btn btn-primary my-2 my-sm-0" type="submit">
-                            <i class="fas fa-search"></i>
-                            &nbsp; 검색
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row py-4 ">
-
-                <div class="col p-0">
-
-                    <div class="text-primary">
-                        &nbsp;
-                        <i class="fas fa-file-medical-alt h5"></i> &nbsp;
-                        <p class="d-inline-block"> Instantaneous/PMU Data File </p>
-                    </div>
-
-                    <div class="table-responsive">
-
-                        <table class="table table-hover table-sm text-nowrap ">
-                            <thead class="text-center">
-                                <tr class="bg-light text-primary">
-                                    <th class="w-25">No.</th>
-                                    <th class="w-50">
-                                        <i class="fa fa-file-contract"></i>&nbsp;&nbsp;파일</th>
-                                    <th class="w-25">
-                                        <i class="far fa-calendar-alt"></i> &nbsp; 날짜</th>
-                                    <th class="w-25 text-center">
-                                        <i class="fas fa-download"></i>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="align-middle text-right">1&nbsp;&nbsp;</td>
-                                    <td class="align-middle">고장 데이터 파일명.txt</td>
-                                    <td class="align-middle">2018-07-27 14:30:25</td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                            <i class="fas fa-download"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle text-right">2&nbsp;&nbsp;</td>
-                                    <td class="align-middle">고장 데이터 파일명.txt</td>
-                                    <td class="align-middle">2018-07-27 14:30:25</td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                            <i class="fas fa-download"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="">
-                                    <td class="align-middle text-right">3&nbsp;&nbsp;</td>
-                                    <td class="align-middle">고장 데이터 파일명.txt</td>
-                                    <td class="align-middle">2018-07-27 14:30:25</td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                            <i class="fas fa-download"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="">
-                                    <td class="align-middle text-right">4&nbsp;&nbsp;</td>
-                                    <td class="align-middle">고장 데이터 파일명.txt</td>
-                                    <td class="align-middle">2018-07-27 14:30:25</td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                            <i class="fas fa-download"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr class="">
-                                    <td class="align-middle text-right">5&nbsp;&nbsp;</td>
-                                    <td class="align-middle">고장 데이터 파일명.txt</td>
-                                    <td class="align-middle">2018-07-27 14:30:25</td>
-                                    <td class="align-middle text-center">
-                                        <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                            <i class="fas fa-download"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-
-                            <tfoot>
-                                <tr class="text-center">
-                                    <th class="text-center" colspan="100%">
-                                        <ul class="pagination justify-content-center">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Previous">
-                                                    <span aria-hidden="true">&laquo;</span>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">3</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">4</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">5</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">6</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">7</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">8</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">9</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">10</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </th>
-                                </tr>
-                            </tfoot>
-                        </table>
                     </div>
                 </div>
 
-                <div class="col ">
-                    <div class="text-primary">
-                        &nbsp;
-                        <i class="fas fa-file-medical-alt h5"></i> &nbsp;
-                        <p class="d-inline-block">COMTRADE Data File</p>
+                <div class="row py-4 ">
+
+                    <div class="col p-0">
+                        <div class="text-primary">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a th:classappend="${gubun_code == 'Fault'} ? active : _ " 
+                                        th:href="@{ /data/list.html?gubun_code=Fault }" 
+                                        class="nav-link" href="#">
+                                        &nbsp;
+                                        <i class="fas fa-file-medical-alt h5"></i> &nbsp;
+                                        <p class="d-inline-block"> Fault Data File </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:classappend="${gubun_code == 'Comtrade'} ? active : _ "
+                                        th:href="@{ /data/list.html?gubun_code=Comtrade }" 
+                                        class="nav-link" href="#">
+                                        &nbsp;
+                                        <i class="fas fa-file-medical-alt h5"></i> &nbsp;
+                                        <p class="d-inline-block"> Comtrade Data File </p>
+                                    </a>
+                                </li> 
+                            </ul>
+                        </div>
+
+                        <div class="table-responsive">
+
+                            <table class="table table-hover table-sm text-nowrap ">
+                                <colgroup>
+                                    <col width="100" />
+                                    <col width="" />
+                                    <col width="100" />
+                                    <col width="100" />
+                                </colgroup>
+                                <thead class="text-center">
+                                    <tr class="bg-light text-primary">
+                                        <th>No.</th>
+                                        <th>
+                                            <i class="fa fa-file-contract"></i>&nbsp;&nbsp;파일</th>
+                                        <th>
+                                            <i class="far fa-calendar-alt"></i> &nbsp; 날짜</th>
+                                        <th>
+                                            <i class="fas fa-download"></i>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr th:each="item, i : ${ dbFiles }" class="db_file_row" th:file_id="${ item.fileId }" 
+                                        style="cursor: pointer;"
+                                    >
+                                        <td class="align-middle text-right">
+                                            <span th:text="${ #numbers.formatInteger( item.rowNumer, 0,'COMMA' ) }">1</span>
+                                            &nbsp;&nbsp;
+                                        </td>
+                                        <td class="align-middle">
+                                            <span th:text="${ item.fileName }">고장 데이터 파일명.txt</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <span th:text="${ #dates.format( item.upDt, 'yyyy-MM-dd hh:mm:ss') }">
+                                                2018-07-27 14:30:25
+                                            </span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button" class="btn btn-sm btn-primary align-bottom">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr th:each="i: ${ dbFiles.getPageEmptyRowSequence( 10 ) }">
+                                        <td colspan="100%">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+
+                                <tfoot>
+                                    <tr class="text-center">
+                                        <th class="text-center" colspan="100%">
+                                            <ul class="pagination justify-content-center">
+                                                <li class="page-item">
+                                                    <a class="page-link page-first" href="#" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <li th:each="i : ${ dbFiles.getPageList( param.page ) }" class="page-item">
+                                                    <a th:text="${ #numbers.formatInteger( i + 1 , 0,'COMMA' ) }" class="page-link page-no" href="#">
+                                                        1
+                                                    </a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a class="page-link page-last" href="#" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
 
-                    <table class="table table-hover table-sm text-nowrap">
-                        <thead class="text-center">
-                            <tr class="bg-light text-primary">
-                                <th class="w-25">No.</th>
-                                <th class="w-50">
-                                    <i class="fa fa-file-image"></i>&nbsp;&nbsp;파일</th>
-                                <th class="w-25">
-                                    <i class="fas fa-calendar-alt"></i> &nbsp; 날짜</th>
-                                <th class="w-25 text-center">
-                                    <i class="fas fa-download"></i>
-                                </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td class="align-middle text-right">1&nbsp;&nbsp;</td>
-                                <td class="align-middle">고장 데이터 파일명.txt</td>
-                                <td class="align-middle">2018-07-27 14:30:25</td>
-                                <td class="align-middle text-center">
-                                    <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                        <i class="fas fa-download"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="align-middle text-right">2&nbsp;&nbsp;</td>
-                                <td class="align-middle">고장 데이터 파일명.txt</td>
-                                <td class="align-middle">2018-07-27 14:30:25</td>
-                                <td class="align-middle text-center">
-                                    <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                        <i class="fas fa-download"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="">
-                                <td class="align-middle text-right">3&nbsp;&nbsp;</td>
-                                <td class="align-middle">고장 데이터 파일명.txt</td>
-                                <td class="align-middle">2018-07-27 14:30:25</td>
-                                <td class="align-middle text-center">
-                                    <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                        <i class="fas fa-download"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="">
-                                <td class="align-middle text-right">4&nbsp;&nbsp;</td>
-                                <td class="align-middle">고장 데이터 파일명.txt</td>
-                                <td class="align-middle">2018-07-27 14:30:25</td>
-                                <td class="align-middle text-center">
-                                    <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                        <i class="fas fa-download"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="">
-                                <td class="align-middle text-right">5&nbsp;&nbsp;</td>
-                                <td class="align-middle">고장 데이터 파일명.txt</td>
-                                <td class="align-middle">2018-07-27 14:30:25</td>
-                                <td class="align-middle text-center">
-                                    <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                        <i class="fas fa-download"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                        <tfoot>
-                            <tr class="text-center">
-                                <th class="text-center" colspan="100%">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">1</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">2</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">3</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">4</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">5</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">6</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">7</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">8</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">9</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">10</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </th>
-                            </tr>
-                        </tfoot>
-                    </table>
                 </div>
+            </section>
+        </main>
 
+        <input th:value="${ param.page }" type="hidden" name="page" value="0" />
+        <input th:value="${ gubun_code }" type="hidden" name="gubun_code" value="0" />
 
-
-            </div>
-
-            </div>
-            </div>
-        </section>
-    </main>
+    </form>
 
     <footer th:replace="024_layout_footer.html" class="bg-dark text-center">
 

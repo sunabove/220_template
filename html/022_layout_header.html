@@ -89,7 +89,7 @@
                                 <h6 class="card-body p-0 m-0">
                                     <i class="far fa-bell "></i>
                                     &nbsp; 
-                                    <a th:href="@{/article/list.html}" class="text-muted" href="#">
+                                    <a th:href="@{/article/view.html?id=__${ noticeArticle.articleId }__ }" class="text-muted" href="#">
                                         공지사항 :
                                         <span th:text="${ noticeArticle } ? ${ noticeArticle.title } : '홈 페이지 오픈' " 
                                             style="overflow: hidden; text-overflow: ellipsis; "
