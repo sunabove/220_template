@@ -230,7 +230,8 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr th:each="item, i : ${ dbFiles }" class="db_file_row" th:file_id="${ item.fileId }" 
+                                    <tr th:each="item, i : ${ dbFiles }" th:file_id="${ item.fileId }" 
+                                        class="db_file_row" 
                                         style="cursor: pointer;"
                                     >
                                         <td class="align-middle text-right">
@@ -350,6 +351,15 @@
 
         <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
     </div>
+
+    <script>
+        $( ".db_file_row" ).click( 
+            function() {
+                var file_id = $(this).attr( "file_id") ;
+                window.location.href = "./download?file_id=" + encodeURI( file_id ); 
+            }
+        );
+    </script>
 
 </body>
 
