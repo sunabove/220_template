@@ -6,6 +6,7 @@
 - sudo apt install git
 
 - sudo apt install mariadb-server mariadb-client
+
 - mysql -h localhost -u root 
 - Maria Db > create database psdr ;
 - Maria Db > show databases ;
@@ -22,21 +23,7 @@
 - groupadd tomcat
 - useradd -g tomcat -d /opt/tomcat tomcat 
 - cd /opt/
-
-- wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz
-- tar -xzvf apache-tomcat-9.0.10.tar.gz
-- mv apache-tomcat-9.0.10/ tomcat/
-- chown -R tomcat:tomcat /opt/tomcat
-- chmod +x /opt/tomcat/svr/bin/*
-
-- <tomcat>/webapps/manager/META-INF/context.xml
-- <Context antiResourceLocking="false" privileged="true" >
-    <!--
-    <Valve className="org.apache.catalina.valves.RemoteAddrValve"
-         allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
-    -->
-   </Context>
-
+ 
 - git clone https://github.com/sunabove/210_tomcat_svr.git /opt/tomcat/svr 
 
 - chown -R tomcat:tomcat /opt/tomcat
@@ -47,6 +34,7 @@
 - cd /etc/init.d
 - update-rc.d tomcat9 defaults 81
 
+- cd /opt/
 - git clone https://github.com/sunabove/220_template.git /opt/tomcat/template
 
 - #tomcat auto startup script
