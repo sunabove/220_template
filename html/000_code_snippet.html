@@ -2,6 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 </html>
 
+@RequestParam("from") @DateTimeFormat(pattern="yyyy-MM-dd") Date fromDate) {
+    //Content goes here
+    
 th:href="@{/main/main.html}"
 
 th:classappend="${isAdmin} ? adminclass : userclass"
