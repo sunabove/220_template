@@ -16,3 +16,10 @@ th:classappend="${isAdmin} ? adminclass : userclass"
 
 <tr th:each="item, i : ${users}" class="article_row"  >
 
+<link id="bsdp-css" href="bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+<script src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="bootstrap-datepicker/js/locales/bootstrap-datepicker.kr.min.js" charset="UTF-8"></script>
+
+$('#sandbox-container input').datepicker({
+});    
+

@@ -168,10 +168,13 @@
                                             <i class="far fa-calendar-alt pr-1"></i>
                                         </div>
                                     </div>
-                                    <input name="search_date" type="text" 
-                                        class="form-control" 
-                                        placeholder="2017-08-20" 
+                                    <input 
+                                        th:value="${ param.search_date }"
+                                        name="search_date" type="text" 
+                                        class="form-control date_picker" 
+                                        placeholder="날짜" 
                                         style="max-width: 110px;" 
+                                        value=""
                                     />
                                 </div>
                             </div>
@@ -361,9 +364,16 @@
         $("#search_btn").click(
             function () {
                 $( "form input[name=page]" ).attr("name", "");
-                $( "form input[name=search_date]" ).attr("name", "");
+                //$( "form input[name=search_date]" ).attr("name", "");
             }
         );
+
+        $('.date_picker').datepicker({
+            format: "yyyy-mm-dd",
+            endDate: '+2d',
+            datesDisabled: '+2d',
+            language: "kr"
+        }); 
     </script>
 
 </body>
