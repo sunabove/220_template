@@ -230,7 +230,9 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr th:each="item, i : ${ dbFiles }" th:file_id="${ item.fileId }" 
+                                    <tr th:each="item, i : ${ dbFiles }" 
+                                        th:file_id="${ item.fileId }" 
+                                        th:file_no="${ item.fileNo }" 
                                         class="db_file_row" 
                                         style="cursor: pointer;"
                                     >
@@ -355,8 +357,8 @@
     <script>
         $( ".db_file_row" ).click( 
             function() {
-                var file_id = $(this).attr( "file_id") ;
-                window.location.href = "./download.html?file_id=" + file_id ; 
+                var file_no = $(this).attr( "file_no" ) ;
+                window.location.href = "./download/" + encodeURI( file_no ) ; 
             }
         );
     </script>
