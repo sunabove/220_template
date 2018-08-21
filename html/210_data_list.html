@@ -162,18 +162,20 @@
                             <ul class="mr-auto">
                             </ul>
                             <div class="dropdown pr-2">
-                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    <i class="far fa-calendar-alt pr-1"></i>
-                                    2018-08-07
-                                </button>
-                                <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#"></a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#"></a>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="far fa-calendar-alt pr-1"></i>
+                                        </div>
+                                    </div>
+                                    <input name="search_date" type="text" 
+                                        class="form-control" 
+                                        placeholder="2017-08-20" 
+                                        style="max-width: 110px;" 
+                                    />
                                 </div>
                             </div>
-                            <button class="btn btn-primary my-2 my-sm-0" type="submit">
+                            <button id="search_btn" class="btn btn-primary my-2 my-sm-0" type="submit">
                                 <i class="fas fa-search"></i>
                                 &nbsp; 검색
                             </button>
@@ -187,23 +189,21 @@
                         <div class="text-primary">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a th:classappend="${gubun_code == 'Fault'} ? active : _ " 
-                                        th:href="@{ /data/list.html?gubun_code=Fault }" 
-                                        class="nav-link" href="#">
+                                    <a th:classappend="${gubun_code == 'Fault'} ? active : _ " th:href="@{ /data/list.html?gubun_code=Fault }" class="nav-link"
+                                        href="#">
                                         &nbsp;
                                         <i class="fas fa-file-medical-alt h5"></i> &nbsp;
                                         <p class="d-inline-block"> Fault Data File </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a th:classappend="${gubun_code == 'Comtrade'} ? active : _ "
-                                        th:href="@{ /data/list.html?gubun_code=Comtrade }" 
-                                        class="nav-link" href="#">
+                                    <a th:classappend="${gubun_code == 'Comtrade'} ? active : _ " th:href="@{ /data/list.html?gubun_code=Comtrade }" class="nav-link"
+                                        href="#">
                                         &nbsp;
                                         <i class="fas fa-file-medical-alt h5"></i> &nbsp;
                                         <p class="d-inline-block"> Comtrade Data File </p>
                                     </a>
-                                </li> 
+                                </li>
                             </ul>
                         </div>
 
@@ -230,12 +230,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr th:each="item, i : ${ dbFiles }" 
-                                        th:file_id="${ item.fileId }" 
-                                        th:file_no="${ item.fileNo }" 
-                                        class="db_file_row" 
-                                        style="cursor: pointer;"
-                                    >
+                                    <tr th:each="item, i : ${ dbFiles }" th:file_id="${ item.fileId }" th:file_no="${ item.fileNo }" class="db_file_row" style="cursor: pointer;">
                                         <td class="align-middle text-right">
                                             <span th:text="${ #numbers.formatInteger( item.rowNumer, 0,'COMMA' ) }">1</span>
                                             &nbsp;&nbsp;
@@ -288,6 +283,7 @@
                     </div>
 
                 </div>
+                
             </section>
         </main>
 
@@ -355,10 +351,17 @@
     </div>
 
     <script>
-        $( ".db_file_row" ).click( 
-            function() {
-                var file_no = $(this).attr( "file_no" ) ;
-                window.location.href = "./download/" + encodeURI( file_no ) ; 
+        $(".db_file_row").click(
+            function () {
+                var file_no = $(this).attr("file_no");
+                window.location.href = "./download/" + encodeURI(file_no);
+            }
+        );
+
+        $("#search_btn").click(
+            function () {
+                $( "form input[name=page]" ).attr("name", "");
+                $( "form input[name=search_date]" ).attr("name", "");
             }
         );
     </script>
