@@ -192,7 +192,9 @@
                         <div class="text-primary">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a th:classappend="${gubun_code == 'Fault'} ? active : _ " th:href="@{ /data/list.html?gubun_code=Fault }" class="nav-link"
+                                    <a th:classappend="${gubun_code == 'Fault'} ? active : _ " 
+                                        th:gubun_code="Fault" 
+                                        class="nav-link data_tab"
                                         href="#">
                                         &nbsp;
                                         <i class="fas fa-file-medical-alt h5"></i> &nbsp;
@@ -200,7 +202,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a th:classappend="${gubun_code == 'Comtrade'} ? active : _ " th:href="@{ /data/list.html?gubun_code=Comtrade }" class="nav-link"
+                                    <a th:classappend="${gubun_code == 'Comtrade'} ? active : _ " 
+                                        th:gubun_code="Comtrade" 
+                                        class="nav-link data_tab"
                                         href="#">
                                         &nbsp;
                                         <i class="fas fa-file-medical-alt h5"></i> &nbsp;
@@ -354,10 +358,21 @@
     </div>
 
     <script>
+        
+
         $(".db_file_row").click(
             function () {
                 var file_no = $(this).attr("file_no");
                 window.location.href = "./download/" + encodeURI(file_no);
+            }
+        );
+
+        $(".data_tab" ).click(
+            function () {
+                $( "form input[name=gubun_code]" ).val( $(this).attr( "gubun_code" ) );
+                
+                $( "form input[name=page]" ).attr("name", "");
+                $( "form" ).submit();
             }
         );
 
