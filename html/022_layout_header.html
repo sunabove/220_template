@@ -8,7 +8,10 @@
                     <tbody>
                         <tr>
                             <td class="align-middle">
-                                <a th:href="@{/main/main.html}" class="text-muted" href="#" >
+                                <a th:href="@{/main/main.html}" 
+                                    class="text-muted" href="#" 
+                                    title="홈페이지 메인 화면으로 이동합니다."
+                                >
                                     <img src="../rsc/psdr-custom/img/logo_001_procom.png" alt="logo" />
                                 </a>
                             </td>
@@ -27,8 +30,14 @@
                             </td>
                             <td>
                                 &nbsp;
-                                <a th:href="@{/gen/about.html}" class="text-muted" href="#">
-                                    <img th:src="@{ /rsc/psdr-custom/img/product.png }" src="../rsc/psdr-custom/img/product.png" alt="product" style="height: 62px;" />
+                                <a th:href="@{/gen/about.html}" 
+                                    class="text-muted" href="#" 
+                                    title="제품 소개 화면으로 이동합니다."
+                                >
+                                    <img th:src="@{ /rsc/psdr-custom/img/product.png }" 
+                                        src="../rsc/psdr-custom/img/product.png" 
+                                        style="height: 62px;" 
+                                    />
                                 </a>
                             </td>
 
@@ -59,12 +68,23 @@
                     <tbody>
                         <tr>
                             <td>
-                                <h5 th:text="${ session.sysName_01.value }" class="font-weight-bold text-primary p-0 m-0"> 경기지역본부 </h5>
+                                <h5 th:text="${ session.sysName_01.value }" 
+                                    class="font-weight-bold text-primary p-0 m-0"
+                                    title="지역본부"
+                                > 
+                                    경기지역본부 
+                                </h5>
                             </td>
 
                             <td>
                                 <h5 class="card-title text-dark font-weight-bold p-0 mb-0">
-                                    &nbsp; <span th:text="${ session.sysName_02.value }" >성남전력지사</span>&nbsp;&nbsp;
+                                    &nbsp;
+                                    <span th:text="${ session.sysName_02.value }"
+                                        title="전력지사"
+                                    >
+                                        성남전력지사
+                                    </span>
+                                    &nbsp;&nbsp;
                                 </h5>
                             </td>
 
@@ -118,7 +138,9 @@
                         <tr>
                             <td colspan="2" class="text-center">
                                 <h3 class="card-title text-warning font-weight-bold mb-0 " >
-                                    <span th:text="${ session.sysName_03.value }" >154kV 중원 변전소</span>&nbsp;
+                                    <span th:text="${ session.sysName_03.value }" title="변전소명" >
+                                        154kV 중원 변전소
+                                    </span>&nbsp;
                                 </h3>
                             </td>
                             <td colspan="2" class="text-left">
@@ -141,9 +163,13 @@
                             </td>
 
                             <td th:if="${ loginUser_id }" class="text-right">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="far fa-user"></i>&nbsp;
-                                    <span th:text="${ loginUser_id }" >접속 아이디</span>
+                                <a class="nav-link dropdown-toggle" href="#" 
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                >
+                                    <i class="far fa-user" title="로그인 아이디"></i>&nbsp;
+                                    <span th:text="${ loginUser_id }" title="클릭하면 상세 메뉴가 나타납니다." >
+                                        접속 아이디
+                                    </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" >
                                     <a th:href="@{/user/logout.html}" class="dropdown-item" href="#" >
