@@ -4,14 +4,14 @@
 
 @RequestParam("from") @DateTimeFormat(pattern="yyyy-MM-dd") Date fromDate) {
     //Content goes here
-    
+
 th:href="@{/main/main.html}"
 
 th:classappend="${isAdmin} ? adminclass : userclass"
 
 <span th:text="${ #numbers.formatInteger( item.rowNumer, 0,'COMMA' ) }">1</span>
 
-<td th:text="${#dates.format(sprint.releaseDate, 'dd-MMM-yyyy')}"></td>
+<td th:text="${ #dates.format(sprint.releaseDate, 'dd-MMM-yyyy') }"></td>
 
 <td th:text="${ #dates.format(sprint.releaseDate, 'yyyy-MM-dd hh:mm:ss') }"></td>
 

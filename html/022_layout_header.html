@@ -101,7 +101,7 @@
                             <td>
                                 <h6 class="card-body p-0 m-0 text-dark" title="접속 건수" >
                                     <i class="far fa-user"></i> &nbsp;  
-                                    전체 :
+                                    전체 :&nbsp; 
                                     <span th:text="${ totConnUserNo.getValueFormat() }" >
                                         1,234,567
                                     </span>
@@ -120,14 +120,16 @@
                                 <h6 class="card-body p-0 m-0 text-dark" title="다운로드 건수" > 
                                     <i class="fa fa-download"></i> 
                                     &nbsp; 
-                                    전체 :
+                                    전체 :&nbsp; 
                                     <span th:text="${ totDownNo.getValueFormat() }" style="min-width: 100px;" >
                                         1,234,567
                                     </span>
                                     &nbsp;건
                                     &nbsp;&nbsp;
                                     오늘 :
-                                    <span th:text="${ totDownNo.getValueFormat() }" style="min-width: 100px;" >
+                                    <span th:text="${ #numbers.formatInteger( todayDownNo.downloadCount, 0,'COMMA' )  }"
+                                        style="min-width: 100px;" 
+                                    >
                                         2,345
                                     </span>
                                     &nbsp;건
