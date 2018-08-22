@@ -74,7 +74,9 @@
                             </td>
                             <td class="text-left">
                                 <h6 class="card-body p-0 m-0 text-dark"> 
-                                    <i class="fa fa-download"></i> &nbsp; 다운로드 :
+                                    <i class="fa fa-download"></i> 
+                                    &nbsp; 
+                                    다운로드 :
                                     <span th:text="${ totDownNo.getValueFormat() }">2,345</span>&nbsp;건
                                 </h6>
                             </td>
@@ -89,10 +91,14 @@
                                 <h6 class="card-body p-0 m-0">
                                     <i class="far fa-bell "></i>
                                     &nbsp; 
-                                    <a th:href="@{/article/view.html?id=__${ noticeArticle.articleId }__ }" class="text-muted" href="#">
+                                    <a th:href="@{/article/view.html?id=__${ noticeArticle.articleId }__ }" 
+                                        th:title="${ noticeArticle } ? ${ noticeArticle.title } : '홈 페이지 오픈' " 
+                                        class="text-muted" 
+                                        href="#"
+                                    >
                                         공지사항 :
-                                        <span th:text="${ noticeArticle } ? ${ noticeArticle.title } : '홈 페이지 오픈' " 
-                                            style="overflow: hidden; text-overflow: ellipsis; "
+                                        <span th:text="${ noticeArticle } ? ${ noticeArticle.getTitleFormat( 32 ) } : '홈 페이지 오픈' " 
+                                            style="white-space: nowrap; overflow-x: hidden; text-overflow: ellipsis; width: 100%; max-width: 320px; "
                                         >
                                             홈페이지가 오픈되었습니다.
                                         </span>
