@@ -3,7 +3,8 @@
 </html>
 
 @RequestParam("from") @DateTimeFormat(pattern="yyyy-MM-dd") Date fromDate) {
-    //Content goes here
+
+@Id @GeneratedValue(strategy=GenerationType.IDENTITY) long id;
 
 th:href="@{/main/main.html}"
 

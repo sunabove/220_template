@@ -137,42 +137,60 @@
 
     <form>
 
-    <main>
+        <main>
 
-        <section class="container" style=" margin-top:150px; margin-bottom: 50px;">
+            <section class="container" style=" margin-top:150px; margin-bottom: 50px;">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-info rouded">
-                <a class="navbar-brand font-weight-bold text-dark " href="#">
-                    <i class="fas fa-bars d-inline-block"></i>&nbsp;
-                    <p class="m-0 pt-1  d-inline-block">공지사항</p>
-                </a>
-                <div class="collapse navbar-collapse ">
-                    <ul class="navbar-nav mr-auto">
-                    </ul>
-                </div>
-            </nav>
-
-            <div class="row py-4  float-right">
-                <div class="col">
-                    <button th:if="${ false }" class="btn btn-outline-dark">
-                        <i class="fas fa-angle-left pr-2"></i>이전글</button>
-
-                    <button th:if="${ false }" class="btn btn-outline-dark">다음글
-                        <i class="fas fa-angle-right pl-2"></i>
-                    </button>
-                    <button class="btn btn-dark">
-                        <a th:href="@{ /article/list.html }" href="#">
-                            <i class="fas fa-bars pr-2" style="color: #fff"></i>
-                            목록
+                <div class="row bg-info rouded">
+                    <div class="col-5">
+                        <a th:href="@{ /data/list.html }" class="navbar-brand font-weight-bold text-dark " href="#">
+                            <i class="fas fa-bars d-inline-block"></i>&nbsp;
+                            <p class="m-0 pt-1  d-inline-block">
+                                공지사항
+                            </p>
                         </a>
-                    </button>
-                </div>
-            </div>
+                    </div>
 
-            <div class="row py-4 ">
+                    <div class="col-7">
+                        <div class="input-group my-2">
+                            <ul class="mr-auto">
+                            </ul>
+                            <button th:if="${ false }" class="btn btn-outline-dark">
+                                <i class="fas fa-angle-left pr-2"></i>이전글</button>
+
+                            <button th:if="${ false }" class="btn btn-outline-dark">
+                                다음글
+                                <i class="fas fa-angle-right pl-2"></i>
+                            </button>
+                            &nbsp;
+                            <button class="btn btn-dark">
+                                <a th:href="@{ /article/list.html }" href="#">
+                                    <i class="fas fa-bars pr-2" style="color: #fff"></i>
+                                    목록
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row py-4 ">
+                    <div class="col-1">
+                        <label class="text-nowrap text-muted d-inline-block ">
+                            <i class="fas fa-dot-circle pr-2 text-primary"></i>
+                            제목
+                        </label>
+                    </div>
+                    <div class="col-8">
+                        <input th:value="${ article.title }" name="article_title" class="form-control is-invalid " type="text" required="" value="시스템 파일 업로드"
+                        />
+                    </div>
+                    <div class="col-3  d-inline-block">
+                        <input th:value="${ #dates.format( article.upDt, 'yyyy-MM-dd hh:mm:ss') }" class="form-control" style="max-width: 170px;"
+                            type="text" required="" readonly value="2018-07-27 12:33:40" />
+                    </div>
+                </div>
 
                 <div class="col-md-12 ">
-
                     <div class="card p-2" style="overflow: hidden;">
                         <div class="form-group row px-2 pb-2 pt-0 " style="border-bottom: 1px solid rgba(0, 0, 0, 0.125);">
                             <label class="col-2 col-form-label form-control-label text-muted d-inline-block ">
@@ -180,18 +198,12 @@
                                 제목
                             </label>
                             <div class="col-7 d-inline-block">
-                                <input th:value="${ article.title }" name="article_title" class="form-control is-invalid " type="text" 
-                                    required="" 
-                                    value="시스템 파일 업로드" 
+                                <input th:value="${ article.title }" name="article_title" class="form-control is-invalid " type="text" required="" value="시스템 파일 업로드"
                                 />
                             </div>
                             <div class="col-3 d-inline-block">
-                                <input th:value="${ #dates.format( article.upDt, 'yyyy-MM-dd hh:mm:ss') }" 
-                                    class="form-control" style="max-width: 170px;"
-                                    type="text" 
-                                    required="" readonly
-                                    value="2018-07-27 12:33:40" 
-                                />
+                                <input th:value="${ #dates.format( article.upDt, 'yyyy-MM-dd hh:mm:ss') }" class="form-control" style="max-width: 170px;"
+                                    type="text" required="" readonly value="2018-07-27 12:33:40" />
                             </div>
                         </div>
                         <div class="form-group row p-2">
@@ -200,19 +212,22 @@
                                 작성자
                             </label>
                             <div class="col-3 d-inline-block">
-                                <input th:value="${ article.upUser.userId }" class="form-control " type="text" 
-                                    required="" readonly
-                                    value="sunabove" 
-                                />
+                                <input th:value="${ article.upUser.userId }" class="form-control " type="text" required="" readonly value="sunabove" />
                             </div>
 
                         </div>
-                        <div class="form-group"> 
-                            <textarea th:text="${ article.content }" name="article_content" class="form-control" rows="20" >
+                        <div class="form-group">
+                            <textarea th:text="${ article.content }" name="article_content" class="form-control" rows="20">
                                 본문: 옛날에 활동했던 미니 입니다.잘들 …..
                             </textarea>
                         </div>
-                    </div> 
+                    </div>
+
+                </div>
+
+                </div>
+
+                <div class="row py-4 ">
 
                     <div class="text-center pt-4">
                         <button id="save-cmd" class="btn btn-primary " type="button">
@@ -230,14 +245,13 @@
 
                     </div>
                 </div>
-            </div>
 
-        </section>
+            </section>
 
-    </main>
+        </main>
 
-    <input type="hidden" name="article_id" value="" th:value="${ article.articleId }" />
-    <input type="hidden" name="cmd" value="" />
+        <input type="hidden" name="article_id" value="" th:value="${ article.articleId }" />
+        <input type="hidden" name="cmd" value="" />
 
     </form>
 
@@ -301,18 +315,18 @@
     </div>
 
     <script>
-        $( "#cancel-cmd" ).click( function() {
-            window.location.href = "list.html" ; 
+        $("#cancel-cmd").click(function () {
+            window.location.href = "list.html";
         });
 
-        $( "#delete-cmd" ).click( function() { 
-            $( "form input[name=cmd]" ).val( "delete" ); 
-            $( "form" ).submit();
+        $("#delete-cmd").click(function () {
+            $("form input[name=cmd]").val("delete");
+            $("form").submit();
         });
 
-        $( "#save-cmd" ).click( function() { 
-            $( "form input[name=cmd]" ).val( "save" ); 
-            $( "form" ).submit();
+        $("#save-cmd").click(function () {
+            $("form input[name=cmd]").val("save");
+            $("form").submit();
         });
     </script>
 
