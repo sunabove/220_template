@@ -135,7 +135,7 @@
 
     </nav>
 
-    <form>
+    <form method="POST" >
 
         <main>
 
@@ -155,6 +155,14 @@
                         <div class="input-group my-2">
                             <ul class="mr-auto">
                             </ul>
+                            <a  th:if="${ article.articleId }"
+                                th:href="@{ /article/view.html }"
+                                href="#" class="btn btn-primary " role="button" aria-pressed="true"
+                            >
+                                <i class="fa fa-edit"></i>&nbsp;
+                                글쓰기
+                            </a>
+                            &nbsp; 
                             <button th:if="${ false }" class="btn btn-sm btn-outline-dark">
                                 <i class="fas fa-angle-left pr-2"></i>이전글
                             </button>
@@ -198,7 +206,7 @@
                                                 type="text" required="" value="시스템 파일 업로드" />
                                         </th>
                                         <th>
-                                            <div th:if="${ article.isUpdatable( req ) }" 
+                                            <div th:if="${ isAdmin && article.isUpdatable( req ) }" 
                                                 class="custom-control custom-checkbox mb-1">
                                                 <input 
                                                     th:checked="${ article.notice }"

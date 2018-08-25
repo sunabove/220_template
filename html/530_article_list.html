@@ -154,6 +154,14 @@
                             <ul class="mr-auto">
                             </ul>
 
+                            <a th:href="@{ /article/view.html }"
+                                href="#" class="btn btn-primary " role="button" aria-pressed="true"
+                            >
+                                <i class="fa fa-edit"></i>&nbsp;
+                                글쓰기
+                            </a>
+                            &nbsp;&nbsp;&nbsp;
+
                             <input th:value="${ article_title_search }" name="article_title_search" type="text" class="form-control pr-2" placeholder="제목"
                                 style="max-width: 200px;" />
                             <span class="input-group-btn">
@@ -209,7 +217,7 @@
                                             <span th:if="${ false }" class="badge badge-primary">New</span>
                                         </td>
                                         <td class="align-middle">
-                                            <span th:text="${ item.upUser.userId }">sunabove</span>
+                                            <span th:text="${ item.getWriterId() }">sunabove</span>
                                         </td>
                                         <td class="align-middle">
                                             <span th:text="${ #dates.format( item.upDt, 'yyyy-MM-dd hh:mm:ss') }" >2018-07-27</span>
