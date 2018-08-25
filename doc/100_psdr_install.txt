@@ -8,6 +8,7 @@
 - sudo apt install mariadb-server mariadb-client
 
 - mysql -h localhost -u root 
+- Maria Db > drop database psdr ;
 - Maria Db > create database psdr ;
 - Maria Db > show databases ;
 - Maria Db >GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY 'admin' WITH GRANT OPTION;
