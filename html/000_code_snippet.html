@@ -6,6 +6,8 @@
 
 @Id @GeneratedValue(strategy=GenerationType.IDENTITY) long id;
 
+@Column( length = 191 )
+
 th:href="@{/main/main.html}"
 
 th:classappend="${isAdmin} ? adminclass : userclass"
