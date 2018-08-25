@@ -194,25 +194,21 @@
                                         </th>
 
                                         <th>
-                                            <input 
-                                                th:value="${ article.title }"
-                                                th:readonly="${ article.isReadonly( req ) }"
-                                                name="article_title" 
-                                                class="form-control "
-                                                type="text" required="" 
-                                                value="시스템 파일 업로드"
-                                            />
+                                            <input th:value="${ article.title }" th:readonly="${ article.isReadonly( req ) }" name="article_title" class="form-control "
+                                                type="text" required="" value="시스템 파일 업로드" />
                                         </th>
-
                                         <th>
-                                            <input th:value="${ #dates.format( article.upDt, 'yyyy-MM-dd hh:mm:ss') }"
-                                                class="form-control" 
-                                                style="max-width: 170px;"
-                                                type="text" 
-                                                required="" 
-                                                readonly 
-                                                value="2018-07-27 12:33:40" 
-                                            />
+                                            <div th:if="${ article.isUpdatable( req ) }" 
+                                                class="custom-control custom-checkbox mb-1">
+                                                <input 
+                                                    th:checked="${ article.notice }"
+                                                    name="article_notice" id="article_notice" 
+                                                    type="checkbox" class="custom-control-input" 
+                                                />
+                                                <label class="custom-control-label" for="article_notice">
+                                                    공지사항
+                                                </label>
+                                            </div>
                                         </th>
                                     </tr>
                                     <tr>
@@ -224,18 +220,12 @@
                                             </label>
                                         </th>
                                         <th>
-                                            <input 
-                                                th:value="${ article.getUpUserId() }"
-                                                class="form-control "
-                                                style="max-width: 200px;"
-                                                type="text"
-                                                required=""
-                                                readonly
-                                                value="sunabove" 
-                                            />
+                                            <input th:value="${ article.getWriterId() }" class="form-control " style="max-width: 200px;" type="text" required="" readonly
+                                                value="sunabove" />
                                         </th>
                                         <th>
-
+                                            <input th:value="${ #dates.format( article.upDt, 'yyyy-MM-dd hh:mm:ss') }" class="form-control" style="max-width: 170px;"
+                                                type="text" required="" readonly value="2018-07-27 12:33:40" />
                                         </th>
                                     </tr>
                                 </thead>
@@ -243,13 +233,8 @@
                                     <tr>
                                         <td colspan="100%">
                                             <div class="form-group">
-                                                <textarea 
-                                                    th:text="${ article.content }" 
-                                                    th:readonly="${ article.isReadonly( req ) }"
-                                                    name="article_content" 
-                                                    class="form-control text-left" 
-                                                    rows="20" 
-                                                >
+                                                <textarea th:text="${ article.content }" th:readonly="${ article.isReadonly( req ) }" name="article_content" class="form-control text-left"
+                                                    rows="20">
                                                     본문: 옛날에 활동했던 미니 입니다.잘들 …..
                                                 </textarea>
                                             </div>
@@ -258,31 +243,17 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="100%" class="text-center" >
+                                        <th colspan="100%" class="text-center">
                                             &nbsp;
-                                            <button 
-                                                th:if="${ article.isUpdatable( req ) }"
-                                                id="save-cmd" 
-                                                class="btn btn-primary " type="button"
-                                            >
+                                            <button th:if="${ article.isUpdatable( req ) }" id="save-cmd" class="btn btn-primary " type="button">
                                                 <i class="fa fa-save pr-2 "></i>
                                                 저장
                                             </button>
-                                            <button 
-                                                th:if="${ article.isCancellable( req ) }"
-                                                id="cancel-cmd" 
-                                                class="btn btn-secondary" 
-                                                type="button" 
-                                            >
+                                            <button th:if="${ article.isCancellable( req ) }" id="cancel-cmd" class="btn btn-secondary" type="button">
                                                 <i class="fas fa-redo-alt pr-2 text-dark"></i>
                                                 취소
                                             </button>
-                                            <button
-                                                th:if="${ article.isDeletable( req ) }"
-                                                id="delete-cmd" 
-                                                class="btn btn-secondary" 
-                                                type="button" 
-                                            >
+                                            <button th:if="${ article.isDeletable( req ) }" id="delete-cmd" class="btn btn-secondary" type="button">
                                                 <i class="fas fa-times pr-2 text-dark"></i>
                                                 삭제
                                             </button>
@@ -298,7 +269,7 @@
                             </table>
                         </div>
                     </div>
-                </div> 
+                </div>
 
             </section>
 
