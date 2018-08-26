@@ -162,14 +162,27 @@
                                 <i class="fa fa-edit"></i>&nbsp;
                                 글쓰기
                             </a>
-                            &nbsp; 
-                            <button th:if="${ false }" class="btn btn-sm btn-outline-dark">
-                                <i class="fas fa-angle-left pr-2"></i>이전글
+                            &nbsp;&nbsp;
+                            <button th:if="${ articlePrev }" 
+                                class="btn btn-sm btn-outline-dark" 
+                            >
+                                <a th:href="@{ '/article/view.html?id=' + ${articlePrev.articleId} }" 
+                                    href="#" class="text-muted" 
+                                >
+                                    <i class="fas fa-angle-left pr-2"></i>
+                                    이전글
+                                </a>
                             </button>
                             &nbsp;
-                            <button th:if="${ false }" class="btn btn-sm btn-outline-dark">
-                                다음글
-                                <i class="fas fa-angle-right pl-2"></i>
+                            <button th:if="${ articleNext }" 
+                                class="btn btn-sm btn-outline-dark"
+                            >
+                                <a th:href="@{ '/article/view.html?id=' + ${articleNext.articleId} }" 
+                                    href="#" class="text-muted" 
+                                >
+                                    다음글
+                                    <i class="fas fa-angle-right pl-2"></i>
+                                </a>
                             </button>
                             &nbsp;&nbsp;&nbsp;
                             <button class="btn btn-dark">
