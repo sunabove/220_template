@@ -69,16 +69,16 @@
 		<!-- content -->
 
 		<section class="container" style=" margin-top:40px; margin-bottom: 50px;">
-			
+
 			<div class="row bg-info rouded">
-                <div class="col-12">
-                    <a class="navbar-brand font-weight-bold text-dark " href="#">
-                        <i class="fas fa-bars d-inline-block"></i>&nbsp;
-                        <p class="m-0 pt-1  d-inline-block">사용자 정보 변경</p>
-                    </a>
-                </div> 
+				<div class="col-12">
+					<a class="navbar-brand font-weight-bold text-dark " href="#">
+						<i class="fas fa-bars d-inline-block"></i>&nbsp;
+						<p class="m-0 pt-1  d-inline-block">사용자 정보 변경</p>
+					</a>
+				</div>
 			</div>
-			
+
 			<div class="row">
 
 				<div class="col-md-12 mt-4 ">
@@ -89,16 +89,17 @@
 									<div class="form-group pb-3 text-primary">
 										&nbsp;
 										<i class="far fa-user"></i> &nbsp;
-										<label >아이디</label>
+										<label>아이디</label>
 										<input th:value="${ loginUser.userId }" id="user_id" class="form-control bg-secondary" placeholder="아이디" readonly />
 									</div>
 
 									<div class="form-group pb-3 text-primary">
 										&nbsp;
 										<i class="far fa-envelope"></i> &nbsp;
-										<label >이메일</label>
-										<input th:value="${ loginUser.email }" id="user_email" name="user_email" type="text" class="form-control" placeholder="이메일 주소" />
-										<small id="user_email_error" class="ml-4" >
+										<label>이메일</label>
+										<input th:value="${ loginUser.email }" id="user_email" name="user_email" type="text" class="form-control" placeholder="이메일 주소"
+										/>
+										<small id="user_email_error" class="ml-4">
 											이메일 주소를 입력하세요.
 										</small>
 									</div>
@@ -106,7 +107,7 @@
 										<div class="text-primary">
 											&nbsp;
 											<i class="fas fa-key"></i> &nbsp;
-											<label for=" text-white">암호</label> 
+											<label for=" text-white">암호</label>
 										</div>
 										<input id="user_pass" name="user_pass" type="password" class="form-control" placeholder="암호" />
 										<small id="user_pass_error" class="ml-4">
@@ -118,18 +119,25 @@
 										<div class="text-danger">
 											&nbsp;
 											<i class="fas fa-key"></i> &nbsp;
-											<label >암호 확인</label> 
+											<label>암호 확인</label>
 										</div>
 										<input id="user_pass_confirm" type="password" class="form-control" placeholder="암호 확인" />
 										<small id="user_pass_confirm_error" class="ml-4">
 										</small>
 									</div>
-									
-									<button type="submit" 
-										class="btn btn-primary btn-md btn-block align-center pb-2"
-									>
-										<i class="fas fa-check ml-2"></i> &nbsp; 저장
-									</button>
+
+									<div class="row justify-content-center">
+										<div class="col text-center">
+											<button type="submit" class="btn btn-primary btn-block ">
+												<i class="fas fa-check ml-2"></i> &nbsp; 저장
+											</button>
+										</div>
+										<div class="col text-center">
+											<a th:href="${ referrer }" role="button" class="btn btn-secondary ">
+												<i class="fas fa-arrow-left ml-2"></i> &nbsp; 취소 &nbsp;
+											</a>
+										</div>
+									</div>
 
 								</form>
 
@@ -209,67 +217,67 @@
 
 			//$("#user_id_error").html("")
 			//$("#user_pass_error").html("")
-		}) ;
+		});
 
 		function validateSubmitForm() {
 
-			valid = true ;
+			valid = true;
 
-			$( "#user_email, #user_pass, #user_pass_confirm" ).removeClass( "border-danger" ) 
-			$( "#user_email_error, #user_pass_error, #user_pass_confirm_error" ).removeClass( "text-danger" ) 
+			$("#user_email, #user_pass, #user_pass_confirm").removeClass("border-danger")
+			$("#user_email_error, #user_pass_error, #user_pass_confirm_error").removeClass("text-danger")
 
-			$( "#user_email, #user_pass_error, #user_pass_confirm_error" ).html( "" )  
+			$("#user_email, #user_pass_error, #user_pass_confirm_error").html("")
 
 			var user_email = $("#user_email").val().trim();
 			var user_pass = $("#user_pass").val().trim();
 			var user_pass_confirm = $("#user_pass_confirm").val().trim();
 
-			if ( 1 > user_email.length ) {
-				valid = false ; 
+			if (1 > user_email.length) {
+				valid = false;
 
-				$("#user_email_error").html( "이메일 주소를 입력하세요." )
+				$("#user_email_error").html("이메일 주소를 입력하세요.")
 
-				$("#user_email_error").addClass( "text-danger" )
-				$("#user_email").addClass( "border-danger" ) 
-			} else if ( ! isValidEmail( user_email ) ) {
-				valid = false ; 
+				$("#user_email_error").addClass("text-danger")
+				$("#user_email").addClass("border-danger")
+			} else if (!isValidEmail(user_email)) {
+				valid = false;
 
-				$("#user_email_error").html( "잘못된 이메일 주소 형식입니다." )
+				$("#user_email_error").html("잘못된 이메일 주소 형식입니다.")
 
-				$("#user_email_error").addClass( "text-danger" )
-				$("#user_email").addClass( "border-danger" ) 
-			} 
-			
-			if( ! valid || user_pass == user_pass_confirm ) {
+				$("#user_email_error").addClass("text-danger")
+				$("#user_email").addClass("border-danger")
+			}
+
+			if (!valid || user_pass == user_pass_confirm) {
 				// do nothing!
-			} else if ( 1 > user_pass.length ) {
-				valid = false ; 
+			} else if (1 > user_pass.length) {
+				valid = false;
 
-				$("#user_pass_error").html( "암호를 입력하세요." )
+				$("#user_pass_error").html("암호를 입력하세요.")
 
-				$("#user_pass_error").addClass( "text-danger" )
-				$("#user_pass").addClass( "border-danger" ) 
-			} else if ( 6 > user_pass.length ) {
-				valid = false ; 
+				$("#user_pass_error").addClass("text-danger")
+				$("#user_pass").addClass("border-danger")
+			} else if (6 > user_pass.length) {
+				valid = false;
 
-				$("#user_pass_error").html( "암호는 6자리 이상입니다.")
+				$("#user_pass_error").html("암호는 6자리 이상입니다.")
 
-				$("#user_pass_error").addClass( "text-danger" )
-				$("#user_pass").addClass( "border-danger" ) 
-			}  else if ( 1 > user_pass_confirm.length ) {
-				valid = false ; 
+				$("#user_pass_error").addClass("text-danger")
+				$("#user_pass").addClass("border-danger")
+			} else if (1 > user_pass_confirm.length) {
+				valid = false;
 
-				$("#user_pass_confirm_error").html( "확인 암호를 입력하세요!")
+				$("#user_pass_confirm_error").html("확인 암호를 입력하세요!")
 
-				$("#user_pass_confirm_error").addClass( "text-danger" )
-				$("#user_pass_confirm").addClass( "border-danger" ) 
-			} else if ( 6 > user_pass_confirm.length ) {
-				valid = false ; 
+				$("#user_pass_confirm_error").addClass("text-danger")
+				$("#user_pass_confirm").addClass("border-danger")
+			} else if (6 > user_pass_confirm.length) {
+				valid = false;
 
-				$("#user_pass_confirm_error").html( "확인 암호는 6자리 이상입니다.")
+				$("#user_pass_confirm_error").html("확인 암호는 6자리 이상입니다.")
 
-				$("#user_pass_confirm_error").addClass( "text-danger" )
-				$("#user_pass_confirm").addClass( "border-danger" ) 
+				$("#user_pass_confirm_error").addClass("text-danger")
+				$("#user_pass_confirm").addClass("border-danger")
 			}
 
 			return valid;
