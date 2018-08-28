@@ -37,7 +37,8 @@
                                 </td>
                                 <td>
                                     <a class="text-muted" href="#">
-                                        <p class="display-4 font-weight-bold d-inline-block mb-0 align-center pl-2" style="color:#083358">FDW</p>
+                                        <p class="display-4 font-weight-bold d-inline-block mb-0 align-center pl-2"
+                                            style="color:#083358">FDW</p>
                                     </a>
                                     &nbsp;
                                 </td>
@@ -45,7 +46,7 @@
 
                                 <td class="text-left">
                                     <img src="../rsc/psdr-custom/img/logo_002_psdr.png" alt="name_img" style="height: 20px;">
-                                    <br/>
+                                    <br />
                                     <img src="../rsc/psdr-custom/img/logo_003_fdw.png" alt="name_img" style="height: 22px;">
                                 </td>
                                 <td>
@@ -66,7 +67,8 @@
 
     </nav>
 
-    <nav th:replace="022_layout_header.html :: header_02" class="navbar fixed-top navbar-expand-lg bg-light p-0 pt-1 " style="margin-top: 68px">
+    <nav th:replace="022_layout_header.html :: header_02" class="navbar fixed-top navbar-expand-lg bg-light p-0 pt-1 "
+        style="margin-top: 68px">
 
         <div class="container justify-content-center p-0">
             <div class="row">
@@ -115,7 +117,8 @@
                                     </h6>
                                 </td>
                                 <td class="text-right">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDd" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
                                         <i class="far fa-user"></i>
                                         <span>접속 아이디</span>
                                     </a>
@@ -135,194 +138,100 @@
 
     </nav>
 
-    <main style="margin-top:130px;">
+    <form>
 
-        <section class="container" style="margin-bottom: 50px;">
+        <main style="margin-top:130px;">
 
-            <div class="row bg-info rouded">
-                <div class="col-5">
-                    <a class="navbar-brand font-weight-bold text-dark " href="#">
-                        <i class="fas fa-bars d-inline-block"></i>&nbsp;
-                        <p class="m-0 pt-1  d-inline-block">시스템모니터링</p>
-                    </a>
-                </div>
-                <div class="col-7">
-                    <div class="input-group my-2">
-                        <ul class="mr-auto">
-                        </ul>
-                        <div class="dropdown pr-2">
-                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="far fa-calendar-alt pr-1"></i>
-                                2018-08-07
-                            </button>
-                            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"></a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"></a>
+            <section class="container" style="margin-bottom: 50px;">
+
+                <div class="row bg-info rouded">
+                    <div class="col-5">
+                        <a class="navbar-brand font-weight-bold text-dark " href="#">
+                            <i class="fas fa-bars d-inline-block"></i>&nbsp;
+                            <p class="m-0 pt-1  d-inline-block">시스템모니터링</p>
+                        </a>
+                    </div>
+                    <div class="col-7">
+                        <div class="input-group my-2">
+                            <ul class="mr-auto">
+                            </ul>
+                            <div class="dropdown pr-2">
+                                <div class="input-group date">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="far fa-calendar-alt pr-1"></i>
+                                        </div>
+                                    </div>
+                                    <input th:value="${ search_date }" name="search_date" 
+                                        type="text" class="form-control date_picker"
+                                        placeholder="날짜" style="max-width: 110px;" value="" 
+                                    />
+                                </div>
                             </div>
+                            <button id="search_btn" class="btn btn-primary my-2 my-sm-0" type="submit">
+                                <i class="fas fa-search"></i>
+                                &nbsp; 검색
+                            </button>
                         </div>
-                        <button class="btn btn-dark" type="button">
-                            <i class="fas fa-search"></i> &nbsp; 검색
-                        </button>
                     </div>
                 </div>
-            </div>
 
-            <div class="row py-4 ">
-                <div class="col-6">
+                <div class="row py-4 ">
 
-                    <div class="table-responsive">
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table table-hover text-center">
+                                <tbody>
+                                    <tr class="bg-light ">
+                                        <th class="w-33 text-primary">
+                                            <i class="far fa-clock"></i>
+                                            시간
+                                        </th> 
+                                        <th class="w-33 text-primary">
+                                            <i class="fa fa-download "></i>
+                                            다운로드 횟수
+                                        </th>
+                                    </tr>
+                                    <tr th:each="item, i : ${ dbFileLogs }" >
+                                        <td th:text="${ item.getHourIntervalDesc() }"
+                                            class="align-middle"
+                                        >
+                                            00:00 ~ 01:00
+                                        </td>
+                                        <td th:text="${ #numbers.formatInteger( item.downloadCount, 0,'COMMA' ) }" 
+                                            class="align-middle"
+                                        >
+                                            1,234
+                                        </td> 
+                                    </tr> 
 
-                        <table class="table table-hover text-center">
-                            <tbody>
-                                <tr class="bg-light ">
-                                    <th class="w-33 text-primary">
-                                        <i class="far fa-clock"></i>
-                                        시간
-                                    </th>
-                                    <th class="w-33 text-primary">
-                                        <i class="far fa-user"></i>
-                                        접속자수
-                                    </th>
-                                    <th class="w-33 text-primary">
-                                        <i class="fa fa-download "></i>
-                                        다운로드 횟수
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">00:00 ~ 01:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">02:00 ~ 03:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">04:00 ~ 05:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">06:00 ~ 07:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">08:00 ~ 09:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">10:00 ~ 11:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">12:00 ~ 13:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">13:00 ~ 14:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                            </tbody>
+                                    <tr th:each="i: ${ dbFileLogs.getPageEmptyRowSequence( 10 ) }">
+                                        <td colspan="100%">&nbsp;</td>
+                                    </tr>
+                                </tbody>
 
-                            <tfoot>
-                                <tr class="text-warning font-weight-bold">
-                                    <td class="align-middle">평균</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
+                                <tfoot th:if="${ true }" >
+                                    <tr class="text-warning font-weight-bold">
+                                        <td class="align-middle">계</td>
+                                        <td th:text="${ #numbers.formatInteger( dbFileLogs.getDownloadCountSum(), 0,'COMMA' ) }"
+                                            class="align-middle" 
+                                        >
+                                            1,234
+                                        </td> 
+                                    </tr>
 
-                            </tfoot>
+                                </tfoot>
 
-                        </table>
-                    </div>
+                            </table>
+                        </div>
+                    </div> 
                 </div>
-                <div class="col-6">
 
-                    <div class="table-responsive">
+            </section>
 
-                        <table class="table table-hover text-center">
-                            <tbody>
-                                <tr class="bg-light ">
-                                    <th class="w-33 text-primary">
-                                        <i class="far fa-clock"></i>
-                                        시간
-                                    </th>
-                                    <th class="w-33 text-primary">
-                                        <i class="far fa-user"></i>
-                                        접속자수
-                                    </th>
-                                    <th class="w-33 text-primary">
-                                        <i class="fa fa-download "></i>
-                                        다운로드 횟수
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">00:00 ~ 01:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">02:00 ~ 03:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">04:00 ~ 05:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">06:00 ~ 07:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">08:00 ~ 09:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">10:00 ~ 11:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">12:00 ~ 13:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                                <tr>
-                                    <td class="align-middle">13:00 ~ 14:00</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-                            </tbody>
+        </main>
 
-                            <tfoot>
-                                <tr class="text-warning font-weight-bold">
-                                    <td class="align-middle">평균</td>
-                                    <td class="align-middle">1,234</td>
-                                    <td class="align-middle">1,234</td>
-                                </tr>
-
-                            </tfoot>
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-    </main>
+    </form>
 
     <footer th:replace="024_layout_footer.html" class="bg-dark text-center">
 
@@ -382,6 +291,16 @@
 
         <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
     </div>
+
+    <script>
+        $( ".date_picker" ).datepicker({
+            format: "yyyy-mm-dd",
+            endDate: '+2d',
+            datesDisabled: '+2d',
+            language: "kr",
+            pickerPosition: "bottom right"
+        }); 
+    </script>
 
 </body>
 
