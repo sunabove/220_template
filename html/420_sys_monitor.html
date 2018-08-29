@@ -185,23 +185,32 @@
                                     <tr class="bg-light ">
                                         <th class="w-33 text-primary">
                                             <i class="far fa-clock"></i>
-                                            시간
+                                            &nbsp; 시간
                                         </th> 
                                         <th class="w-33 text-primary">
+                                            <i class="fa fa-user-check "></i>
+                                            &nbsp; 접속 횟수
+                                        </th>
+                                        <th class="w-33 text-primary">
                                             <i class="fa fa-download "></i>
-                                            다운로드 횟수
+                                            &nbsp; 다운로드 횟수
                                         </th>
                                     </tr>
-                                    <tr th:each="item, i : ${ dbFileLogs }" >
+                                    <tr th:each="item, i : ${ dbFileLogs.getListByOffsetSkip( 0, 2 ) }" >
                                         <td th:text="${ item.getHourIntervalDesc() }"
                                             class="align-middle"
                                         >
                                             00:00 ~ 01:00
                                         </td>
-                                        <td th:text="${ #numbers.formatInteger( item.downloadCount, 0,'COMMA' ) }" 
-                                            class="align-middle"
-                                        >
+                                        <td class="text-right" >
+                                            <span th:text="${ #numbers.formatInteger( item.accessCount, 0,'COMMA' ) }" >
                                             1,234
+                                            </span>&nbsp;
+                                        </td> 
+                                        <td class="text-right" >
+                                            <span th:text="${ #numbers.formatInteger( item.downloadCount, 0,'COMMA' ) }" >
+                                            1,234
+                                            </span>&nbsp;
                                         </td> 
                                     </tr> 
 
@@ -212,11 +221,19 @@
 
                                 <tfoot th:if="${ true }" >
                                     <tr class="text-warning font-weight-bold">
-                                        <td class="align-middle">계</td>
-                                        <td th:text="${ #numbers.formatInteger( dbFileLogs.getDownloadCountSum(), 0,'COMMA' ) }"
-                                            class="align-middle" 
-                                        >
-                                            1,234
+                                        <td class="align-middle">
+                                            <i class="fas fa-calculator"></i>
+                                            &nbsp; 평균
+                                        </td>
+                                        <td class="text-right">
+                                            <span th:text="${ #numbers.formatDecimal( dbFileLogs.getAccessCountAvg(), 0,'COMMA', 2, 'POINT' ) }" >
+                                                1,234
+                                            </span>&nbsp;
+                                        </td> 
+                                        <td class="text-right">
+                                            <span th:text="${ #numbers.formatDecimal( dbFileLogs.getDownloadCountAvg(), 0,'COMMA', 2, 'POINT' ) }" >
+                                                1,234
+                                            </span>&nbsp;
                                         </td> 
                                     </tr>
 
@@ -225,6 +242,72 @@
                             </table>
                         </div>
                     </div> 
+
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table table-hover text-center">
+                                <tbody>
+                                    <tr class="bg-light ">
+                                        <th class="w-33 text-primary">
+                                            <i class="far fa-clock"></i>
+                                            &nbsp; 시간
+                                        </th> 
+                                        <th class="w-33 text-primary">
+                                            <i class="fa fa-user-check "></i>
+                                            &nbsp; 접속 횟수
+                                        </th>
+                                        <th class="w-33 text-primary">
+                                            <i class="fa fa-download "></i>
+                                            &nbsp; 다운로드 횟수
+                                        </th>
+                                    </tr>
+                                    <tr th:each="item, i : ${ dbFileLogs.getListByOffsetSkip( 1, 2 ) }" >
+                                        <td th:text="${ item.getHourIntervalDesc() }"
+                                            class="align-middle"
+                                        >
+                                            00:00 ~ 01:00
+                                        </td>
+                                        <td class="text-right" >
+                                            <span th:text="${ #numbers.formatInteger( item.accessCount, 0,'COMMA' ) }" >
+                                            1,234
+                                            </span>&nbsp;
+                                        </td> 
+                                        <td class="text-right" >
+                                            <span th:text="${ #numbers.formatInteger( item.downloadCount, 0,'COMMA' ) }" >
+                                            1,234
+                                            </span>&nbsp;
+                                        </td> 
+                                    </tr> 
+
+                                    <tr th:each="i: ${ dbFileLogs.getPageEmptyRowSequence( 10 ) }">
+                                        <td colspan="100%">&nbsp;</td>
+                                    </tr>
+                                </tbody>
+
+                                <tfoot th:if="${ true }" >
+                                    <tr class="text-warning font-weight-bold">
+                                        <td class="align-middle">
+                                            <i class="fas fa-calculator"></i>
+                                            &nbsp; 합계
+                                        </td>
+                                        <td class="text-right">
+                                            <span th:text="${ #numbers.formatInteger( dbFileLogs.getAccessCountSum(), 0,'COMMA' ) }" >
+                                                1,234
+                                            </span>&nbsp;
+                                        </td> 
+                                        <td class="text-right">
+                                            <span th:text="${ #numbers.formatInteger( dbFileLogs.getDownloadCountSum(), 0,'COMMA' ) }" >
+                                                1,234
+                                            </span>&nbsp;
+                                        </td> 
+                                    </tr>
+
+                                </tfoot>
+
+                            </table>
+                        </div>
+                    </div> 
+
                 </div>
 
             </section>
@@ -295,8 +378,8 @@
     <script>
         $( ".date_picker" ).datepicker({
             format: "yyyy-mm-dd",
-            endDate: '+2d',
-            datesDisabled: '+2d',
+            endDate: '+1d',
+            datesDisabled: '+1d',
             language: "kr",
             pickerPosition: "bottom right"
         }); 
