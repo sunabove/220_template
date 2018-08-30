@@ -301,6 +301,14 @@
 					$("#user_pass_confirm_error").addClass( "text-danger" )
 					$("#user_pass_confirm").addClass( "border-danger" ) 
 					$("#user_pass_confirm").focus()
+				} else if ( user_pass != user_pass_confirm ) {
+					valid = false ; 
+	
+					$("#user_pass_confirm_error").html( "암호를 다시 한 번 더 확인하세요.")
+	
+					$("#user_pass_confirm_error").addClass( "text-danger" )
+					$("#user_pass_confirm").addClass( "border-danger" ) 
+					$("#user_pass_confirm").focus()
 				}
 	
 				return valid;
