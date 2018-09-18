@@ -39,3 +39,19 @@
 - git clone https://github.com/sunabove/220_template.git /opt/tomcat/template
 
 - chown -R tomcat:tomcat /opt/tomcat/template
+
+- 톰캣 서버 업데이터
+    $ cd /opt/tomcat/svr
+    $ git pull
+    $ git pull
+
+    git pull 을 두번 실행하여 "이미 업데애ㅣ트 상태입니다." 라는 메시지가 나오면 업데이트 된 것입니다. 
+    업데이트 되어지면 웹프로그램이 재가동 되는 데, 5분 ~ 10분 이상의 시간이 소요될 수 있습니다.
+
+- 웹 디자인 업데이트
+    $ cd /opt/tomcat/template
+    $ git pull
+    $ git pull
+
+    git pull 을 두번 실행하여 "이미 업데이트 상태입니다." 라는 메시지가 나오면 업데이트 된 것입니다.
+
