@@ -161,7 +161,7 @@
                         <div class="input-group my-2">
                             <ul class="mr-auto">
                             </ul>
-                            <div class="dropdown pr-2">
+                            <div th:if="0"class="dropdown pr-2">
                                 <div class="input-group date">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
@@ -211,12 +211,15 @@
                                     <col width="100" />
                                     <col width="100" />
                                 </colgroup>
+
+                                <c:set var="showDate" value="${ false }"/>
+
                                 <thead class="text-center">
                                     <tr class="bg-light text-primary">
                                         <th>No.</th>
                                         <th>
                                             <i class="fa fa-file-contract"></i>&nbsp;&nbsp;파일</th>
-                                        <th>
+                                        <th th:if="${ showDate }" >
                                             <i class="far fa-calendar-alt"></i> &nbsp; 날짜</th>
                                         <th>
                                             <i class="fas fa-download"></i>
@@ -233,7 +236,7 @@
                                         <td class="align-middle">
                                             <span th:text="${ item.fileName }">고장 데이터 파일명.txt</span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td th:if="${ showDate }" class="align-middle">
                                             <span th:text="${ #dates.format( item.upDt, 'yyyy-MM-dd hh:mm:ss') }">
                                                 2018-07-27 14:30:25
                                             </span>
