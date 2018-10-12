@@ -1628,15 +1628,33 @@ $(function () {
 	$( ".page-last" ).click( 
 		function () {
 			var page = $( "form input[name=page]" ).val().toInt() ;
+
+			var pageLast = $( "#pageLast" ).val();
+
 			page = Math.floor( page/10 );
 			page = page + 1;
 			page = page*10;
+
+			if( "" != pageLast ) {
+				pageLast = pageLast.toInt() - 1;
+				if( pageLast < page ) {
+					page = pageLast ;
+				}
+			}
+			
 			page = page < 0 ? 0 : page ;
 			$( "form input[name=page]" ).val( page );
 			$( "form" ).submit();
 		}
 	);
 	// -- page -link
+
+	$( "#srch_btn" ).click( 
+		function() { 
+			$( "form input[name=page]" ).attr( "name", "" )
+		}
+	);
+	
 } 
 );
 

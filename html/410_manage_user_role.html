@@ -142,7 +142,7 @@
 
                 <div class="row bg-info rouded">
                     <div class="col-5">
-                        <a class="navbar-brand font-weight-bold text-dark " href="#">
+                        <a class="navbar-brand font-weight-bold text-dark " href="manage.html">
                             <i class="fas fa-bars d-inline-block"></i>&nbsp;
                             <p class="m-0 pt-1  d-inline-block">사용자 관리</p>
                         </a>
@@ -156,7 +156,7 @@
                             <input th:value="${ user_id_search }" name="user_id_search" type="text" class="form-control pr-2" placeholder="아이디/이메일" style="max-width: 200px;"
                             />
                             <span class="input-group-btn">
-                                <button class="btn btn-dark" type="submit">
+                                <button id="srch_btn" class="btn btn-dark" type="submit">
                                     <i class="fas fa-search"></i> &nbsp; 검색
                                 </button>
                             </span>
@@ -234,7 +234,7 @@
                                                         <span aria-hidden="true">&laquo;</span>
                                                     </a>
                                                 </li>
-                                                <li th:each="i : ${ users.getPageList( param.page ) }" class="page-item">
+                                                <li th:each="i : ${ users.getPageList( page ) }" class="page-item">
                                                     <a th:text="${ #numbers.formatInteger( i + 1 , 0,'COMMA' ) }" class="page-link page-no" href="#">
                                                         1
                                                     </a>
@@ -258,7 +258,8 @@
 
         </main>
 
-        <input th:value="${ param.page }" type="hidden" name="page"        value="0" />
+        <input th:value="${ param.page }"           type="hidden" name="page"   value="0" />
+        <input th:value="${ page.getTotalPages() }" type="hidden" id="pageLast" value="" />
         <input                            type="hidden" name="user_id"     value=""  />
         <input                            type="hidden" name="user_role"   value=""  />
         <input                            type="hidden" name="user_delete" value=""  />

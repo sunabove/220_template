@@ -172,7 +172,7 @@
                                         style="max-width: 110px;" value="" />
                                 </div>
                             </div>
-                            <button id="search_btn" class="btn btn-primary my-2 my-sm-0" type="submit">
+                            <button id="srch_btn" class="btn btn-primary my-2 my-sm-0" type="submit">
                                 <i class="fas fa-search"></i>
                                 &nbsp; 검색
                             </button>
@@ -262,7 +262,7 @@
                                                         <span aria-hidden="true">&laquo;</span>
                                                     </a>
                                                 </li>
-                                                <li th:each="i : ${ dbFiles.getPageList( param.page ) }" class="page-item">
+                                                <li th:each="i : ${ dbFiles.getPageList( page ) }" class="page-item">
                                                     <a th:text="${ #numbers.formatInteger( i + 1 , 0,'COMMA' ) }" class="page-link page-no" href="#">
                                                         1
                                                     </a>
@@ -286,6 +286,7 @@
         </main>
 
         <input th:value="${ param.page }" type="hidden" name="page" value="0" />
+        <input th:value="${ page.getTotalPages() }" type="hidden" id="pageLast" value="" />
         <input th:value="${ gubun_code }" type="hidden" name="gubun_code" value="0" />
 
     </form>
@@ -363,14 +364,7 @@
                 $("form input[name=page]").attr("name", "");
                 $("form").submit();
             }
-        );
-
-        $("#search_btn").click(
-            function () {
-                $("form input[name=page]").attr("name", "");
-                //$( "form input[name=search_date]" ).attr("name", "");
-            }
-        );
+        ); 
 
         $( ".date_picker" ).datepicker({
             format: "yyyy-mm-dd",
