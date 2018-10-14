@@ -286,10 +286,15 @@
     <script>
         $(function () {
             var dbg = true;
-            dbg && debug("Hello....")
+            dbg && debug("Hello....") ;
 
-            //$("#user_id_error").html("")
-            //$("#user_pass_error").html("")
+            $( "#user_id" ).val( Cookies.get( "user_id") );
+
+            if( "" == $( "#user_id" ).val() ) {
+                $( "#user_id" ).focus();
+            } else {
+                $( "#user_pass" ).focus();
+            }
         });
 
         // validateSubmitForm
