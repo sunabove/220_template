@@ -1601,7 +1601,6 @@ function validateLoginForm() {
 		var user_id = $("#user_id").val()
 		if( "" != user_id ) {
 			Cookies.set( "user_id" , user_id );
-			alert( "user_id = " + Cookies.get( "user_id") );
 		}
 	}
 
