@@ -228,7 +228,12 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr th:each="item, i : ${ dbFiles }" th:file_id="${ item.fileId }" th:file_no="${ item.fileNo }" class="db_file_row" style="cursor: pointer;">
+                                    <tr th:each="item, i : ${ dbFiles }" 
+                                        th:file_id="${ item.fileId }" 
+                                        th:file_no="${ item.fileNo }" 
+                                        th:pair_file_no="${ item.getPairFileNo() }" 
+                                        class="db_file_row" style="cursor: pointer;"
+                                    >
                                         <td class="align-middle text-right">
                                             <span th:text="${ #numbers.formatInteger( item.rowNumer, 0,'COMMA' ) }">1</span>
                                             &nbsp;&nbsp;
@@ -352,8 +357,13 @@
     <script>
         $(".db_file_row").click(
             function () {
-                var file_no = $(this).attr("file_no");
+                var file_no = $(this).attr( "file_no" );
                 window.location.href = "./download/" + encodeURI(file_no);
+
+                var pair_file_no = $(this).attr( "pair_file_no" );
+                if( null != pair_file_no && "" != pair_file_no ) {
+                    setTimeout(function(){ window.location.href = "./download/" + encodeURI( pair_file_no ); }, 3000);
+                }
             }
         );
 
