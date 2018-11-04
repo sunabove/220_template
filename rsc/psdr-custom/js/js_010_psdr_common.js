@@ -1580,7 +1580,7 @@ function validateLoginForm() {
 	var user_id = $("#user_id").val().trim();
 	var user_pass = $("#user_pass").val().trim();
 
-	if ( 1 > user_id.length ) {
+	if ( $("#user_id").length && 1 > user_id.length ) {
 		valid = false ; 
 
 		$("#user_id_error").html( "아이디 또는 이메일 주소를 입력하세요." )

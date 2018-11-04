@@ -86,7 +86,8 @@
 					<div class="card flex-md-row mb-4 shadow-sm h-md-250 bg-light p-0">
 						<div class="card-body d-flex flex-column ">
 							<form class=" p-3 py-4 " method="GET">
-								<div class="form-group pb-3 text-primary">
+
+								<div th:if="${ showLoginId }" class="form-group pb-3 text-primary">
 									&nbsp;
 									<i class="far fa-user"></i> &nbsp; 아이디 &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
 									<i class="far fa-envelope"></i> &nbsp; 이메일
@@ -193,10 +194,15 @@
 			var dbg = true;
 			dbg && debug("Hello....")
 
-			$( "#user_id" ).val( Cookies.get( "user_id") );
+			user_id = $( "#user_id" )
+			if( user_id.length ) {
+				$( "#user_id" ).val( Cookies.get( "user_id") );
 
-			if( "" == $( "#user_id" ).val() ) {
-				$( "#user_id" ).focus();
+				if( "" == $( "#user_id" ).val() ) {
+					$( "#user_id" ).focus();
+				} else {
+					$( "#user_pass" ).focus();
+				}
 			} else {
 				$( "#user_pass" ).focus();
 			}

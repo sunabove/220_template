@@ -175,7 +175,7 @@
 
                                 <form class="">
 
-                                    <div class="form-group copyable text-primary">
+                                    <div th:if="${ showUserId }" class="form-group copyable text-primary">
                                         &nbsp;
                                         <i class="fas fa-user"></i> &nbsp;
                                         <label>아이디</label>
@@ -288,13 +288,18 @@
             var dbg = true;
             dbg && debug("Hello....") ;
 
-            $( "#user_id" ).val( Cookies.get( "user_id") );
+            user_id = $( "#user_id" )
+			if( user_id.length ) {
+				$( "#user_id" ).val( Cookies.get( "user_id") );
 
-            if( "" == $( "#user_id" ).val() ) {
-                $( "#user_id" ).focus();
-            } else {
-                $( "#user_pass" ).focus();
-            }
+				if( "" == $( "#user_id" ).val() ) {
+					$( "#user_id" ).focus();
+				} else {
+					$( "#user_pass" ).focus();
+				}
+			} else {
+				$( "#user_pass" ).focus();
+			}
         });
 
         // validateSubmitForm
