@@ -233,25 +233,34 @@
                                         th:file_no="${ item.fileNo }" 
                                         th:pair_file_no="${ item.getPairFileNo() }" 
                                         class="db_file_row" style="cursor: pointer;"
-                                    >
+                                    >   
                                         <td class="align-middle text-right">
-                                            <span th:text="${ #numbers.formatInteger( item.rowNumer, 0,'COMMA' ) }">1</span>
+                                            <a th:href="@{/data/download_zip/__${ item.fileNo }__ }" href="#" >
+                                                <span th:text="${ #numbers.formatInteger( item.rowNumer, 0,'COMMA' ) }">1</span>
+                                            </a>
                                             &nbsp;&nbsp;
                                         </td>
                                         <td class="align-middle">
-                                            <span th:text="${ item.fileName }">고장 데이터 파일명.txt</span>
+                                            <a th:href="@{/data/download_zip/__${ item.fileNo }__ }" href="#" >
+                                                <span th:text="${ item.fileName }">고장 데이터 파일명.txt</span>
+                                            </a>
                                         </td>
                                         <td th:if="${ showDate }" class="align-middle">
-                                            <span th:text="${ #dates.format( item.upDt, 'yyyy-MM-dd hh:mm:ss') }">
-                                                2018-07-27 14:30:25
-                                            </span>
+                                            <a th:href="@{/data/download_zip/__${ item.fileNo }__ }" href="#" >
+                                                <span th:text="${ #dates.format( item.upDt, 'yyyy-MM-dd hh:mm:ss') }">
+                                                    2018-07-27 14:30:25
+                                                </span>
+                                            </a>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-sm btn-primary align-bottom">
-                                                <i class="fas fa-download"></i>
-                                            </button>
-                                        </td>
+                                            <a th:href="@{/data/download_zip/__${ item.fileNo }__ }" href="#">
+                                                <button type="button" class="btn btn-sm btn-primary align-bottom">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                            </a>
+                                        </td> 
                                     </tr>
+
 
                                     <tr th:each="i: ${ dbFiles.getPageEmptyRowSequence( 10 ) }">
                                         <td colspan="100%">&nbsp;</td>
@@ -347,15 +356,12 @@
     </footer>
 
     <div th:replace="020_layout_common.html :: footer_include_01">
-        <!-- Bootstrap core JavaScript -->
-        <!-- Placed at the end of the document so the pages load faster -->
         <script src="../rsc/jquery/jquery-3.3.1.min.js"></script>
-
         <script src="../rsc/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
     </div>
 
     <script>
-        $(".db_file_row").click(
+        $(".db_file_row_old").click(
             function () {
                 var file_no = $(this).attr( "file_no" );
                 window.location.href = "./download/" + encodeURI(file_no);
